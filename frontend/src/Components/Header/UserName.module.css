@@ -1,0 +1,17 @@
+.username {
+  font-size: 1rem;
+  color: #ffffff;
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.verifiedSvg,
+.verifiedSvg > * {
+  width: 20px;
+  height: 20px;
+  fill: rgb(255, 48, 48);
+  display: inline-flex;
+  gap: 0.5rem;
+}

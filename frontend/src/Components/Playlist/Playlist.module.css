@@ -1,0 +1,117 @@
+.wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    background: var(--background-03);
+    min-height: 100vh;
+    height: 100%;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  max-width: 1600px;
+  gap: 2rem;
+  color: var(--text-color-1);
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+}
+
+.video {
+  height: 100%;
+  width: 70%;
+}
+
+.navigator {
+  height: 100%;
+  width: 30%;
+}
+
+@media (max-width: 1438px) {
+  .container  {
+    flex-direction: column;
+  }
+  .video {
+    margin-bottom: 1rem;
+  }
+  .video, .navigator {
+    width: 100%;
+    padding: 0.3rem;
+  }
+}
+
+.videoLoading {
+  border-radius: 1rem;
+  margin: 1.8rem 0;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border: none;
+}
+
+.navigatorLoading {
+  height: 100%;
+  border-radius: 0.8rem;
+}
+
+.videoLoading,
+.navigatorLoading {
+  background: var(--color-01);
+  background: linear-gradient(       
+    to right,
+    rgba(255, 255, 255, 0),
+    rgba(79, 79, 79, 0.2) 50%,
+    rgba(56, 55, 55, 0) 80%
+  ),
+  var(--color-01);
+  background-repeat: repeat-y;        
+  background-size: 100px 400px;       
+  background-position: 0 0;  
+  animation: shine 2s infinite linear;
+}
+
+@keyframes shine {	
+  to {
+    background-position: 100% 0, /* move highlight to right */ 0 0;
+  }
+}
+
+.certificate_btn {
+  background: var(--color-brand);
+  color: #fff;
+  padding: 1rem;
+  font-size: 1rem;
+  outline: 0;
+  border: 0;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 1rem;
+  opacity: 0.8;
+  transition: 0.2s;
+  pointer-events: initial;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.certificate_btn:hover {
+  opacity: 1;
+}
+
+.certificate_btn:disabled {
+  opacity: 0.3;
+  background: var(--background-01);
+  pointer-events: none;
+}
+
+.certificate_btn_loading {
+  cursor: wait !important;
+}
+
+.certificate_info {
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}

@@ -1,0 +1,92 @@
+.wrapper {
+  position: relative;
+}
+
+.wrapper > input {
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  background: #fff;
+  transition: 0.2s;
+  margin-top: 1rem;
+}
+
+.wrapper > input:hover,
+.wrapper > input:focus {
+  box-shadow: 0 0 0 3px var(--color-brand);
+}
+
+.wrapper > label {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.list {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.list > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-color-1);
+  background: var(--background-04);
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  flex: 1 1 200px;
+}
+
+.status {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 0.3rem;
+  right: 15px;
+  top: 53px;
+  color: #000;
+}
+
+.status .spin {
+  color: #000;
+  font-size: 1.5rem;
+  animation: spin 1s linear infinite;
+}
+
+.success {
+  color: green !important;
+}
+
+.error {
+  color: red !important;
+}
+
+.status {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 0.3rem;
+  right: 15px;
+  top: 53px;
+  color: #000;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

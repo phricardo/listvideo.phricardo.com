@@ -1,0 +1,44 @@
+.wrapper > input {
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  position: relative;
+  margin-top: 0.5rem;
+  background: #fff;
+  transition: 0.2s;
+  margin-top: 1rem;
+}
+
+.wrapper > input:hover,
+.wrapper > input:focus {
+  box-shadow: 0 0 0 3px var(--color-brand);
+}
+
+.wrapper > label {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.list {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.list > li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text-color-1);
+  background: var(--background-04);
+  padding: 0.5rem;
+  border-radius: 0.4rem;
+  flex: 1 1 200px;
+}

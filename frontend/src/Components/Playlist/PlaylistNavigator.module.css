@@ -1,0 +1,101 @@
+.ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     line-height: 1.5;
+     overflow-y: auto;
+     border-radius: 0.4rem;
+     width: 100%;
+     scrollbar-width: thin;
+     scroll-behavior: smooth;
+     overflow-x: hidden !important;
+     color: var(--text-color-1);
+     background: var(--background-04);
+     min-height: 80vh;
+     height: auto;
+ }
+
+ .ul::-webkit-scrollbar {
+    width: 10px;
+}
+
+.ul::-webkit-scrollbar-track {
+    background-color: var(--background-02);
+}
+
+.ul::-webkit-scrollbar-thumb {
+    background-color: var(--background-04);
+    border-radius: 8px;
+}
+ 
+ .ul > li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1rem;
+
+     cursor: pointer;
+     background: transparent;
+     color: var(--text-color-1);
+     box-shadow: 0 0 0 0.05rem var(--background-05);
+     margin: 0.5rem;
+     border-radius: 0.4rem;
+     transition: 0.1s;
+     border-left: 3px solid var(--background-05);
+     padding: 0.5rem;
+     padding-left: 0.5rem;
+     background: var(--background-03);
+ }
+ 
+ .ul > li:hover {
+    background: var(--background-04);
+ }
+
+ .btnGroup {
+     display: inline-flex;
+     align-items: center;
+     justify-content: center;
+     width: 100%;
+     gap: 0.5rem;
+ }
+
+ .btnGroup > button {
+    margin-top: 1.2rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.btnProximoVideo {
+    margin-bottom: 1rem;
+}
+
+button:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+.page {
+    color: var(--color-04);
+    text-align: center;
+}
+
+.playingNow {
+    background: var(--background-04) !important;
+    color: var(--text-color-1);
+}
+
+.saved {
+    border-left-color:  #b1e458 !important;
+}
+
+.thumbnail {
+    border-radius: 0.8rem;
+    height: 50px;
+}
+
+@media (max-width: 1438px) {
+    .ul {
+        height: 30rem;
+    }
+  }
+  

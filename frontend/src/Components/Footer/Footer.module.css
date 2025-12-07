@@ -1,0 +1,19 @@
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-color-1);
+    background: var(--background-01);
+    border-top: 1px solid var(--background-05);
+}
+
+.logo {
+    height: 50px;
+    width: auto;
+    margin-bottom: 0.2rem;
+}
+
+.text {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+}

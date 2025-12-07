@@ -1,0 +1,45 @@
+.main {
+    height: 100%;
+    min-height: 100vh;
+    background: var(--background-02);
+    color: var(--text-color-1);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+}
+
+.title {
+    margin-bottom: 2rem;
+}
+
+.text {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.list {
+    counter-reset: item;
+    font-size: 1rem;
+    padding: 2rem;
+}
+
+.list>li {
+    display: block;
+    margin-bottom: 1rem;
+    margin-left: 2em;
+}
+
+.list>li::before {
+    display: inline-block;
+    content: counter(item) ") ";
+    counter-increment: item;
+    width: 2em;
+    margin-left: -2em;
+    color: yellowgreen;
+}

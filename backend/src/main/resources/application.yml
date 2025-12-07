@@ -1,0 +1,63 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SPRING_DATASOURCE_URL}
+    username: ${SPRING_DATASOURCE_USERNAME}
+    password: ${SPRING_DATASOURCE_PASSWORD}
+
+  server:
+    error:
+      include-stacktrace: ${SPRING_SERVER_ERROR_INCLUDE_STACKTRACE}
+
+  jpa:
+    show-sql: ${SPRING_JPA_SHOW_SQL}
+    properties:
+      hibernate:
+        dialect: ${SPRING_JPA_HIBERNATE_DIALECT}
+        format_sql: ${SPRING_JPA_HIBERNATE_FORMAT_SQL}
+        hbm2ddl:
+          auto: ${SPRING_JPA_HBM2DDL_AUTO}
+
+  flyway:
+    enabled: true
+    baseline-on-migrate: true
+    locations: classpath:db/migration
+
+  mail:
+    host: ${MAIL_SMTP_HOST:}
+    username: ${MAIL_SMTP_USERNAME:}
+    password: ${MAIL_SMTP_PASSWORD:}
+    port: ${MAIL_SMTP_PORT:0}
+    protocol: ${MAIL_SMTP_PROTOCOL:smtp}
+    properties:
+      mail:
+        smtp:
+          auth: ${MAIL_SMTP_AUTH:false}
+          starttls:
+            enable: ${MAIL_SMTP_STARTTLS_ENABLE:false}
+
+logging:
+  level:
+    org.hibernate.engine.jdbc.spi.SqlExceptionHelper: DEBUG
+
+app:
+  client_base_url: ${CLIENT_BASE_URL}
+  account_activation_url: ${ACCOUNT_ACTIVATION_URL}
+  password_recovery_url: ${PASSWORD_RECOVERY_URL}
+  auto_activate_users: ${AUTO_ACTIVATE_USERS}
+  features:
+    password_reset_email:
+      enabled: ${FEATURE_PASSWORD_RESET_EMAIL_ENABLED:false}
+    activation_resend_email:
+      enabled: ${FEATURE_ACTIVATION_RESEND_EMAIL_ENABLED:false}
+
+  cookie:
+    name: ${AUTH_COOKIE_NAME}
+    secure: ${AUTH_COOKIE_SECURE}
+    same-site: ${AUTH_COOKIE_SAMESITE}
+
+  jwt:
+    token:
+      secret: ${JWT_SECRET}
+      issuer: ${JWT_ISSUER}
+    expiration-time-in-hours: ${JWT_EXPIRATION_TIME_IN_HOURS}

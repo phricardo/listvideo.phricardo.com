@@ -1,0 +1,168 @@
+{
+  "pt": {
+    "header": {
+      "btn_home": "Início",
+      "btn_settings": "Configurações",
+      "btn_autoplay": "Reprodução Automática:",
+      "btn_theme": "Alternar Tema",
+      "link_login": "Login",
+      "link_register": "Criar conta",
+      "open_menu": "Abrir Menu",
+      "close_menu": "Fechar Menu",
+      "logout": "Sair",
+      "logoutConfirm": "Deseja sair de sua conta?"
+    },
+    "home": {
+      "label": "Cole a URL da Playlist abaixo:",
+      "placeholder": "Cole a URL completa da Playlist",
+      "description": "Playlists do YouTube em uma plataforma completa",
+      "inputError": "Informe uma URL válida!",
+      "button": "Reproduzir",
+      "card1": {
+        "title": "Sem distratores",
+        "description": "Interface somente com o necessário"
+      },
+      "card2": {
+        "title": "Emissão de Certificados",
+        "description": "Crie sua conta para emitir seus certificados"
+      },
+      "card3": {
+        "title": "Progresso",
+        "description": "Em tempo real. De 0% até 100%"
+      }
+    },
+    "playlist": {
+      "assisted": "Assistidos",
+      "page": "Página:",
+      "btn_back_page": "Voltar Página",
+      "btn_next_page": "Próxima Página",
+      "author": "Autor(a):",
+      "watched": "Marcar como assistido:",
+      "certificate_btn": "Gerar Certificado de Conclusão",
+      "certificate_btn_loading": "Gerando Certificado",
+      "certificate_info": "Lembre-se, é preciso de uma conta para gerar um certificado."
+    },
+    "login": {
+      "title": "Acessar Plataforma",
+      "emailLabel": "E-Mail/Usuário:",
+      "passwordLabel": "Senha:",
+      "loginButton": "Entrar",
+      "registerMessage": "Crie sua conta grátis hoje!",
+      "registerLink": "Cadastrar"
+    },
+    "register": {
+      "title": "Cadastro na Plataforma",
+      "nameLabel": "Nome:",
+      "emailLabel": "E-mail:",
+      "usernameLabel": "Usuário:",
+      "passwordLabel": "Senha",
+      "terms": "Li e concordo com os",
+      "termsLink": "Termos de Uso e Política de Privacidade",
+      "registerBtn": "Registrar",
+      "errorChecked": "Precisa aceitar os termos de uso"
+    },
+    "settings": {
+      "title": "Configurações",
+      "autoplay": {
+        "title": "Reprodução Automatica",
+        "description": "Ative ou desabilite a reprodução automática na Playlist"
+      },
+      "language": {
+        "title": "Idioma",
+        "description": "Alterne o idioma da Plataforma entre Inglês ou Português"
+      },
+      "theme": {
+        "title": "Tema",
+        "description": "Alterne entre o tema escuro ou claro"
+      }
+    },
+    "footer": {
+      "poweredBy": "Desenvolvido por",
+      "likeIt": "Gostou? Deixe uma ⭐ no",
+      "repository": "repositório"
+    }
+  },
+  "en": {
+    "header": {
+      "btn_home": "Home",
+      "btn_settings": "Settings",
+      "btn_autoplay": "Autoplay:",
+      "btn_theme": "Toggle Theme",
+      "link_login": "Login",
+      "link_register": "Create an account",
+      "open_menu": "Open Menu",
+      "close_menu": "Close Menu",
+      "logout": "Sign Out",
+      "logoutConfirm": "Do you want to log out of your account?"
+    },
+    "home": {
+      "label": "Paste the Playlist URL below:",
+      "placeholder": "Paste the full URL of the Playlist",
+      "description": "YouTube playlists on a complete platform",
+      "inputError": "Please enter a valid URL!",
+      "button": "Reproduce",
+      "card1": {
+        "title": "No distractors",
+        "description": "Interface only with the necessary"
+      },
+      "card2": {
+        "title": "Certificate Issue",
+        "description": "Create your account to issue your certificates"
+      },
+      "card3": {
+        "title": "Progress",
+        "description": "In real time. From 0% to 100%"
+      }
+    },
+    "playlist": {
+      "assisted": "Assisted",
+      "page": "Page:",
+      "btn_back_page": "Back Page",
+      "btn_next_page": "Next Page",
+      "author": "Author:",
+      "watched": "Mark as assisted:",
+      "certificate_btn": "Generate Certificate of Completion",
+      "certificate_btn_loading": "Generating Certificate",
+      "certificate_info": "Remember, you need an account to generate a certificate."
+    },
+    "login": {
+      "title": "Access Platform",
+      "emailLabel": "E-Mail/Username:",
+      "passwordLabel": "Password:",
+      "loginButton": "Login",
+      "registerMessage": "Create your free account today!",
+      "registerLink": "Register"
+    },
+    "register": {
+      "title": "Platform Sign Up",
+      "nameLabel": "Name:",
+      "emailLabel": "Email:",
+      "usernameLabel": "Username:",
+      "passwordLabel": "Password",
+      "terms": "I have read and agree with the",
+      "termsLink": "Terms of Use and Privacy Policy",
+      "registerBtn": "Register",
+      "errorChecked": "You must accept the terms of use"
+    },
+    "settings": {
+      "title": "Settings",
+      "autoplay": {
+        "title": "Autoplay",
+        "description": "Enable or disable autoplay in Playlist"
+      },
+      "language": {
+        "title": "Language",
+        "description": "Switch the Platform language between English or Portuguese"
+      },
+      "theme": {
+        "title": "Theme",
+        "description": "Switch between dark or light theme"
+      }
+    },
+    "footer": {
+      "poweredBy": "Powered by",
+      "likeIt": "Did you like it? Leave a ⭐ in",
+      "repository": "repository"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+version: '3'
+services:
+  postgres:
+    container_name: listvideo_database
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_DB: lv_database
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - '5432:5432'
+    expose:
+      - '5432'
+    volumes:
+      - './docker/db/data:/var/lib/postgresql/data'
+      - './docker/db/sql:/docker-entrypoint-initdb.d'
+#  app:
+#    container_name: listvideo_api
+#    build: .
+#    ports:
+#      - '8080:8080'
+#    environment:
+#      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/lv_database?user=admin&password=admin
+#    depends_on:
+#      - postgres

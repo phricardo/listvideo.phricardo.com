@@ -1,0 +1,167 @@
+.login {
+  height: 100%;
+  min-height: 100vh;
+  background: var(--background-02);
+  color: var(--text-color-1);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.wrapper {
+  display: flex;
+  height: 100%;
+  width: 50%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.wrapper > h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 2rem;
+}
+
+.form > input {
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+}
+
+.form > button {
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  margin-top: 1em;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--color-brand);
+  color: #fff;
+  opacity: 0.9;
+  transition: 0.1s;
+}
+
+.form > button:hover {
+  opacity: 1;
+}
+
+.policy {
+  font-size: 1rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+}
+
+.policy > input {
+  width: 20px;
+  height: 20px;
+  background: #f4f4f4;
+  border: 1px solid #ddd;
+  margin-right: 0.8rem;
+}
+
+.policy .terms {
+  margin-left: 0.4rem;
+}
+
+@media (max-width: 830px) {
+  .policy {
+    flex-direction: column;
+  }
+  .policy > input {
+    margin-bottom: 0.5rem;
+  }
+  .wrapper {
+    width: 100%;
+  }
+}
+
+.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.register > a {
+  text-transform: uppercase;
+}
+
+button:disabled {
+  opacity: 0.3;
+  background: var(--background-01);
+  pointer-events: none;
+  cursor: wait !important;
+}
+
+.emailGroup label {
+  font-weight: bold;
+  text-transform: capitalize;
+  font-size: 1rem;
+}
+
+.myWrapper,
+.myWrapper > input {
+  position: relative;
+}
+
+.myWrapper > input {
+  padding: 1rem;
+  width: 100%;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.myWrapper > input,
+.myWrapper > ul,
+.myWrapper > ul li {
+  font-size: inherit;
+  box-sizing: border-box;
+  width: 100%;
+  list-style: none;
+}
+
+.myWrapper > ul {
+  position: absolute;
+  margin-top: 0.45rem;
+  list-style-type: none;
+  z-index: 999;
+  background: var(--background-04);
+  border: 0.2rem solid var(--text-color-2);
+  border-radius: 0.4rem;
+}
+
+.myWrapper > ul li {
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  color: var(--text-color-1);
+  padding: 0.45rem;
+}
+
+.myWrapper > ul li:hover {
+  background: var(--background-03);
+  color: var(--text-color-1);
+}

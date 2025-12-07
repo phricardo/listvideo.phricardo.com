@@ -1,0 +1,57 @@
+{
+  "name": "listvideo-frontend",
+  "description": "",
+  "author": "@phricardo",
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phricardo/listvideo.phricardo.com"
+  },
+  "private": true,
+  "dependencies": {
+    "@smastrom/react-email-autocomplete": "^0.9.4",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^13.5.0",
+    "@u-wave/react-youtube": "^0.7.4",
+    "react": "^18.2.0",
+    "react-click-outside": "^3.0.1",
+    "react-confetti": "^6.1.0",
+    "react-dom": "^18.2.0",
+    "react-router": "^6.4.4",
+    "react-router-dom": "^6.4.4",
+    "react-toastify": "^11.0.5",
+    "react-use-window-size": "^1.0.1",
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "set REACT_APP_LISTVIDEO_API_URL=http://localhost:8080/v1 && react-scripts start",
+    "dev": "set REACT_APP_LISTVIDEO_API_URL=http://localhost:8080/v1 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@iconify/react": "^4.0.1",
+    "react-scripts": "^5.0.1"
+  }
+}
