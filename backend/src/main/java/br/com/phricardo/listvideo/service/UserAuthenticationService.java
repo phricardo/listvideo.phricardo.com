@@ -18,10 +18,12 @@ import br.com.phricardo.listvideo.exception.EmailNotVerifiedException;
 import br.com.phricardo.listvideo.exception.LoginException;
 import br.com.phricardo.listvideo.exception.UserActivationException;
 import br.com.phricardo.listvideo.exception.handler.ErrorKey;
+import br.com.phricardo.listvideo.model.EmailNotification;
 import br.com.phricardo.listvideo.model.User;
 import br.com.phricardo.listvideo.repository.UserAuthRepository;
-import br.com.phricardo.listvideo.service.email.EmailSender;
 import br.com.phricardo.listvideo.service.email.EmailTemplateBuilder;
+import br.com.phricardo.listvideo.service.email.SendNotification;
+
 import java.util.Map;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -47,7 +49,7 @@ public class UserAuthenticationService implements UserDetailsService {
   private final UserResponseMapper userResponseMapper;
   private final UserAvailabilityUsernameResponseMapper userAvailabilityUsernameResponseMapper;
   private final TokenService tokenService;
-  private final EmailSender emailSender;
+  private final SendNotification sendNotification;
   private final EmailTemplateBuilder emailTemplateBuilder;
 
   @Value("${app.account_activation_url}")
@@ -196,19 +198,18 @@ public class UserAuthenticationService implements UserDetailsService {
     if (autoActivateUsers) {
       return;
     }
-    emailSender
-        .setRecipient(user.getEmail())
-        .setSubject("ListVideo - Verify Your Account")
-        .setBody(
-            emailTemplateBuilder
-                .setTemplate("email-template.html")
-                .setName(user.getName())
-                .setBody(
-                    "Welcome to ListVideo!<br> Before you start enjoying everything we have to offer, remember to activate your account.")
-                .setLinkText("Activate my account")
-                .setLinkUrl(format("%s%s", ACCOUNT_ACTIVATION_URL, user.getUserId()))
-                .build(),
-            true)
-        .send();
+    final var emailBody =
+        emailTemplateBuilder.buildActionEmail(
+            user.getName(),
+            "Welcome to ListVideo!<br> Before you start enjoying everything we have to offer, remember to activate your account.",
+            "Activate my account",
+            format("%s%s", ACCOUNT_ACTIVATION_URL, user.getUserId()));
+
+    sendNotification.send(
+        EmailNotification.builder()
+            .to(user.getEmail())
+            .subject("ListVideo - Verify Your Account")
+            .htmlContent(emailBody)
+            .build());
   }
 }

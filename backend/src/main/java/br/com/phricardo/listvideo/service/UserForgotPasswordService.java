@@ -6,12 +6,14 @@ import br.com.phricardo.listvideo.dto.update.UserForgotPasswordRequestDTO;
 import br.com.phricardo.listvideo.dto.update.mapper.UserForgotPasswordUpdateMapper;
 import br.com.phricardo.listvideo.exception.ApiException;
 import br.com.phricardo.listvideo.exception.handler.ErrorKey;
+import br.com.phricardo.listvideo.model.EmailNotification;
 import br.com.phricardo.listvideo.model.User;
 import br.com.phricardo.listvideo.model.UserPasswordResetToken;
 import br.com.phricardo.listvideo.repository.UserAuthRepository;
 import br.com.phricardo.listvideo.repository.UserPasswordResetTokenRepository;
-import br.com.phricardo.listvideo.service.email.EmailSender;
 import br.com.phricardo.listvideo.service.email.EmailTemplateBuilder;
+import br.com.phricardo.listvideo.service.email.SendNotification;
+
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.UUID;
@@ -25,8 +27,8 @@ public class UserForgotPasswordService {
 
   private static final int EXPIRATION = 60 * 24;
 
-  private final EmailSender emailSender;
   private final EmailTemplateBuilder emailTemplateBuilder;
+  private final SendNotification sendNotification;
   private final UserPasswordResetTokenRepository userPasswordResetTokenRepository;
   private final UserForgotPasswordUpdateMapper userForgotPasswordUpdateMapper;
   private final UserForgotPasswordResponseMapper userForgotPasswordResponseMapper;
@@ -108,13 +110,8 @@ public class UserForgotPasswordService {
   private String buildEmailBody(String userName, String token) {
     final var resetLink = PASSWORD_RECOVERY_URL + token;
 
-    return emailTemplateBuilder
-        .setTemplate("email-template.html")
-        .setName(userName)
-        .setBody(getEmailBodyContent())
-        .setLinkText("Recover Password")
-        .setLinkUrl(resetLink)
-        .build();
+    return emailTemplateBuilder.buildActionEmail(
+        userName, getEmailBodyContent(), "Recover Password", resetLink);
   }
 
   private String getEmailBodyContent() {
@@ -123,10 +120,11 @@ public class UserForgotPasswordService {
   }
 
   private void sendPasswordResetEmail(String recipient, String emailBody) {
-    emailSender
-        .setRecipient(recipient)
-        .setSubject("ListVideo - Password recovery")
-        .setBody(emailBody, true)
-        .send();
+    sendNotification.send(
+        EmailNotification.builder()
+            .to(recipient)
+            .subject("ListVideo - Password recovery")
+            .htmlContent(emailBody)
+            .build());
   }
 }
