@@ -17,6 +17,8 @@ public abstract class UserAuthRegisterRequestMapper {
   @Mapping(target = "userId", ignore = true)
   @Mapping(target = "isAccountActivated", constant = "false")
   @Mapping(target = "isVerifiedAccount", constant = "false")
+  @Mapping(target = "avatar", ignore = true)
+  @Mapping(target = "authorities", ignore = true)
   @Mapping(source = "email", target = "email", qualifiedByName = "toLowerCase")
   @Mapping(source = "password", target = "password", qualifiedByName = "encodePassword")
   public abstract User from(UserAuthRegisterRequestDTO userAuthRegisterRequestDTO);

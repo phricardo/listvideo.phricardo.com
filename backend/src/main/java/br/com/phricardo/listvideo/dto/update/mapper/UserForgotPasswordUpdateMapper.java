@@ -2,6 +2,7 @@ package br.com.phricardo.listvideo.dto.update.mapper;
 
 import br.com.phricardo.listvideo.dto.update.UserForgotPasswordRequestDTO;
 import br.com.phricardo.listvideo.model.User;
+import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
@@ -14,6 +15,7 @@ public abstract class UserForgotPasswordUpdateMapper {
 
   @Autowired private PasswordEncoder passwordEncoder;
 
+  @BeanMapping(ignoreByDefault = true)
   @Mapping(target = "password", source = "newPassword", qualifiedByName = "encodePassword")
   public abstract void updatePasswordFromDTO(
       UserForgotPasswordRequestDTO requestDTO, @MappingTarget User user);

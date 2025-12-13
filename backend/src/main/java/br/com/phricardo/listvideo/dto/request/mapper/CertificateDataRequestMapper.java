@@ -10,6 +10,7 @@ import org.mapstruct.Mapping;
 public interface CertificateDataRequestMapper {
 
   @Mapping(target = "id", ignore = true)
+  @Mapping(target = "certificateId", ignore = true)
   @Mapping(source = "user", target = "user")
   Certificate from(CertificateDataRequestDTO certificateDataRequestDTO, User user);
 }
