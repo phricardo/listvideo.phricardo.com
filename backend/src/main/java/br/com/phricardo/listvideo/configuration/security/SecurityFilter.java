@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import lombok.RequiredArgsConstructor;
@@ -18,6 +19,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -31,6 +34,26 @@ public class SecurityFilter extends OncePerRequestFilter {
 
   @Value("${app.cookie.name:listvideo_token}")
   private String authCookieName;
+
+  private static final List<RequestMatcher> PUBLIC_MATCHERS =
+      List.of(
+          new AntPathRequestMatcher("/"),
+          new AntPathRequestMatcher("/v1/auth/login", "POST"),
+          new AntPathRequestMatcher("/v1/auth/register", "POST"),
+          new AntPathRequestMatcher("/v1/auth/logout", "POST"),
+          new AntPathRequestMatcher("/v1/account/**"),
+          new AntPathRequestMatcher("/v1/status/**"),
+          new AntPathRequestMatcher("/v1/user/**", "GET"),
+          new AntPathRequestMatcher("/v1/certificate/**", "GET"),
+          new AntPathRequestMatcher("/v3/api-docs/**"),
+          new AntPathRequestMatcher("/swagger-ui.html"),
+          new AntPathRequestMatcher("/swagger-ui/**"),
+          new AntPathRequestMatcher("/actuator/**"));
+
+  @Override
+  protected boolean shouldNotFilter(HttpServletRequest request) {
+    return PUBLIC_MATCHERS.stream().anyMatch(matcher -> matcher.matches(request));
+  }
 
   @Override
   protected void doFilterInternal(
