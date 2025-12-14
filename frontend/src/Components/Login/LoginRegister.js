@@ -47,20 +47,20 @@ const Register = () => {
         username.validate() &&
         password.validate()
       ) {
-        const { url, options } = USER_POST({
-          name: name.value,
-          email: email.value,
-          username: username.value.toLowerCase(),
-          password: password.value,
-        });
+        const { url, options } = USER_POST(
+          {
+            name: name.value,
+            email: email.value,
+            username: username.value.toLowerCase(),
+            password: password.value,
+          },
+          language
+        );
         const { response } = await request(url, options, {
-          fallbackMessage:
-            "Não foi possível criar sua conta. Tente novamente.",
+          fallbackMessage: lang[language]["register"].errorMessage,
         });
         if (response?.ok) {
-          toastApiSuccess(
-            "Conta criada! Você receberá um e-mail para ativar seu acesso."
-          );
+          toastApiSuccess(lang[language]["register"].successMessage);
           navigate("/login");
         }
       }
@@ -96,7 +96,7 @@ const Register = () => {
               />
 
               <div className={styles.emailGroup}>
-                <label>E-mail: </label>
+                <label>{lang[language]["register"].emailLabel} </label>
                 <Email
                   className={styles.myWrapper}
                   baseList={baseList}

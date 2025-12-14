@@ -61,3 +61,14 @@
 .button:hover {
   opacity: 1;
 }
+
+.languageOptions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.buttonActive {
+  border: 1px solid var(--text-color-1);
+  opacity: 1;
+}

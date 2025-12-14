@@ -17,6 +17,8 @@ import {
   getFeatureDisabledMessage,
   isFeatureEnabled,
 } from "../../utils/featureFlags";
+import { LanguageContext } from "../../Context/LanguageContext";
+import lang from "../../lang.json";
 
 const ResendLinkActivation = () => {
   const { token } = useParams();
@@ -25,12 +27,14 @@ const ResendLinkActivation = () => {
   const [error, setError] = useState(null);
   const navigate = useNavigate();
   const { features } = React.useContext(ServiceStatusContext);
+  const { language } = React.useContext(LanguageContext);
   const isActivationResendEnabled = isFeatureEnabled(
     features,
     "activation_resend_email"
   );
   const featureDisabledMessage = getFeatureDisabledMessage(
-    "activation_resend_email"
+    "activation_resend_email",
+    language
   );
 
   const handleEmailSubmit = async (event) => {
@@ -45,20 +49,23 @@ const ResendLinkActivation = () => {
     }
 
     if (email.value.trim() === "") {
-      setError("Por favor, informe seu e-mail.");
+      setError(lang[language]["activationResend"].emailRequired);
     } else {
-      const { url, options } = USER_RESEND_ACTIVATION_LINK(email.value);
+      const { url, options } = USER_RESEND_ACTIVATION_LINK(
+        email.value,
+        language
+      );
       const response = await fetch(url, options);
       const payload = await safeParseJson(response);
 
       if (response.ok) {
-        toastApiSuccess("E-mail reenviado com sucesso!");
+        toastApiSuccess(lang[language]["activationResend"].success);
         navigate("/login");
       } else {
         const apiError = getFirstApiError(payload);
         const message = toastApiError(
           apiError,
-          "Não foi possível reenviar o e-mail de ativação."
+          lang[language]["activationResend"].error
         );
         setError(message);
         if (apiError?.code === "user.already.activated") {
@@ -74,11 +81,11 @@ const ResendLinkActivation = () => {
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.box}>
-          <h1>Reenviar e-mail de ativação</h1>
+          <h1>{lang[language]["activationResend"].title}</h1>
           {!token && (
             <form className={styles.form} onSubmit={handleEmailSubmit}>
               <Input
-                label="Informe seu e-mail cadastrado"
+                label={lang[language]["activationResend"].emailLabel}
                 name="email"
                 type="text"
                 {...email}
@@ -90,7 +97,9 @@ const ResendLinkActivation = () => {
                 type="submit"
                 disabled={isLoading || !isActivationResendEnabled}
               >
-                {isLoading ? "Enviando..." : "Enviar"}
+                {isLoading
+                  ? lang[language]["activationResend"].sending
+                  : lang[language]["activationResend"].sendButton}
               </button>
             </form>
           )}

@@ -18,6 +18,8 @@ import {
   getFeatureDisabledMessage,
   isFeatureEnabled,
 } from "../../utils/featureFlags";
+import { LanguageContext } from "../../Context/LanguageContext";
+import lang from "../../lang.json";
 
 const PasswordSendLink = () => {
   const { token } = useParams();
@@ -29,12 +31,14 @@ const PasswordSendLink = () => {
   const [isValidToken, setIsValidToken] = useState(true);
   const [error, setError] = useState(null);
   const { features } = React.useContext(ServiceStatusContext);
+  const { language } = React.useContext(LanguageContext);
   const isPasswordResetEmailEnabled = isFeatureEnabled(
     features,
     "password_reset_email"
   );
   const featureDisabledMessage = getFeatureDisabledMessage(
-    "password_reset_email"
+    "password_reset_email",
+    language
   );
 
   const handleEmailSubmit = async (event) => {
@@ -49,18 +53,18 @@ const PasswordSendLink = () => {
     setIsLoading(true);
 
     if (email.value.trim() === "") {
-      setError("Por favor, informe seu e-mail.");
+      setError(lang[language]["passwordReset"].emailRequired);
     } else {
-      const { url, options } = USER_SEND_TOKEN_PASSWORD(email.value);
+      const { url, options } = USER_SEND_TOKEN_PASSWORD(email.value, language);
       const response = await fetch(url, options);
       const payload = await safeParseJson(response);
 
       if (response.ok) {
-        toastApiSuccess("E-mail enviado com sucesso!");
+        toastApiSuccess(lang[language]["passwordReset"].successEmail);
       } else {
         const message = toastApiError(
           payload,
-          "Não conseguimos enviar o e-mail de recuperação."
+          lang[language]["passwordReset"].errorEmailSend
         );
         setError(message);
       }
@@ -76,12 +80,12 @@ const PasswordSendLink = () => {
       newPassword.value.trim() === "" ||
       confirmPassword.value.trim() === ""
     ) {
-      setError("Por favor, preencha todos os campos.");
+      setError(lang[language]["passwordReset"].fieldsRequired);
       return;
     }
 
     if (newPassword.value !== confirmPassword.value) {
-      setError("As senhas não coincidem. Por favor, verifique novamente.");
+      setError(lang[language]["passwordReset"].passwordMismatch);
       return;
     }
 
@@ -94,13 +98,13 @@ const PasswordSendLink = () => {
     const response = await fetch(url, options);
     const payload = await safeParseJson(response);
     if (response.ok) {
-      toastApiSuccess("Senha alterada com sucesso!");
+      toastApiSuccess(lang[language]["passwordReset"].successReset);
       navigate("/login");
     } else {
       const apiError = getFirstApiError(payload);
       const message = toastApiError(
         apiError,
-        "Ocorreu um erro ao mudar sua senha."
+        lang[language]["passwordReset"].errorPasswordChange
       );
       setError(message);
       if (apiError?.code === "password.reset.token.invalid") {
@@ -117,11 +121,11 @@ const PasswordSendLink = () => {
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.box}>
-          <h1>Recuperação de senha</h1>
+          <h1>{lang[language]["passwordReset"].title}</h1>
           {!token && (
             <form className={styles.form} onSubmit={handleEmailSubmit}>
               <Input
-                label="Informe seu e-mail"
+                label={lang[language]["passwordReset"].emailLabel}
                 name="email"
                 type="text"
                 {...email}
@@ -133,30 +137,36 @@ const PasswordSendLink = () => {
                 type="submit"
                 disabled={isLoading || !isPasswordResetEmailEnabled}
               >
-                {isLoading ? "Enviando..." : "Enviar"}
+                {isLoading
+                  ? lang[language]["passwordReset"].sending
+                  : lang[language]["passwordReset"].sendButton}
               </button>
             </form>
           )}
           {token && isValidToken && (
             <form className={styles.form} onSubmit={handleResetPasswordSubmit}>
               <PasswordShowHide
-                label="Nova senha"
+                label={lang[language]["passwordReset"].newPasswordLabel}
                 name="newPassword"
                 type="password"
                 {...newPassword}
               />
               <PasswordShowHide
-                label="Confirme a senha"
+                label={lang[language]["passwordReset"].confirmPasswordLabel}
                 name="confirmPassword"
                 type="password"
                 {...confirmPassword}
               />
               <button type="submit" disabled={isLoading}>
-                {isLoading ? "Enviando..." : "Enviar"}
+                {isLoading
+                  ? lang[language]["passwordReset"].submitting
+                  : lang[language]["passwordReset"].submitButton}
               </button>
             </form>
           )}
-          {token && !isValidToken && <p>Token expirado ou inválido!</p>}
+          {token && !isValidToken && (
+            <p>{lang[language]["passwordReset"].tokenInvalid}</p>
+          )}
           {error && <p>{error}</p>}
         </div>
       </div>

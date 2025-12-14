@@ -1,9 +1,9 @@
 {
   "pt": {
     "header": {
-      "btn_home": "Início",
-      "btn_settings": "Configurações",
-      "btn_autoplay": "Reprodução automática:",
+      "btn_home": "Inicio",
+      "btn_settings": "Configuracoes",
+      "btn_autoplay": "Reproducao automatica:",
       "btn_theme": "Alternar tema",
       "link_login": "Login",
       "link_register": "Criar conta",
@@ -16,70 +16,101 @@
       "label": "Cole a URL da playlist abaixo:",
       "placeholder": "Cole a URL completa da playlist",
       "description": "Playlists do YouTube em uma plataforma completa",
-      "inputError": "Informe uma URL válida!",
+      "inputError": "Informe uma URL valida!",
       "button": "Reproduzir",
       "card1": {
-        "title": "Sem distrações",
-        "description": "Interface apenas com o necessário"
+        "title": "Sem distracoes",
+        "description": "Interface apenas com o necessario"
       },
       "card2": {
-        "title": "Emissão de certificados",
+        "title": "Emissao de certificados",
         "description": "Crie sua conta para emitir certificados"
       },
       "card3": {
         "title": "Progresso",
-        "description": "Em tempo real. De 0% até 100%"
+        "description": "Em tempo real. De 0% ate 100%"
       }
     },
     "playlist": {
       "assisted": "Assistidos",
-      "page": "Página:",
-      "btn_back_page": "Voltar página",
-      "btn_next_page": "Próxima página",
+      "page": "Pagina:",
+      "btn_back_page": "Voltar pagina",
+      "btn_next_page": "Proxima pagina",
       "author": "Autor(a):",
       "watched": "Marcar como assistido:",
-      "certificate_btn": "Gerar certificado de conclusão",
+      "certificate_btn": "Gerar certificado de conclusao",
       "certificate_btn_loading": "Gerando certificado",
-      "certificate_info": "Lembre-se, é preciso ter uma conta para gerar um certificado."
+      "certificate_info": "Lembre-se, e preciso ter uma conta para gerar um certificado."
     },
     "login": {
       "title": "Acessar plataforma",
-      "emailLabel": "E-mail/Usuário:",
+      "emailLabel": "E-mail/Usuario:",
       "passwordLabel": "Senha:",
       "loginButton": "Entrar",
-      "registerMessage": "Crie sua conta grátis hoje!",
+      "registerMessage": "Crie sua conta gratis hoje!",
       "registerLink": "Cadastrar"
     },
     "register": {
       "title": "Cadastro na plataforma",
       "nameLabel": "Nome:",
       "emailLabel": "E-mail:",
-      "usernameLabel": "Usuário:",
+      "usernameLabel": "Usuario:",
       "passwordLabel": "Senha:",
       "terms": "Li e concordo com os",
-      "termsLink": "Termos de Uso e Política de Privacidade",
+      "termsLink": "Termos de Uso e Politica de Privacidade",
       "registerBtn": "Registrar",
-      "errorChecked": "É preciso aceitar os termos de uso"
+      "errorChecked": "E preciso aceitar os termos de uso",
+      "successMessage": "Conta criada! Voce recebera um e-mail para ativar seu acesso.",
+      "errorMessage": "Nao foi possivel criar sua conta. Tente novamente."
     },
     "settings": {
-      "title": "Configurações",
+      "title": "Configuracoes",
       "autoplay": {
-        "title": "Reprodução automática",
-        "description": "Ative ou desative a reprodução automática na playlist"
+        "title": "Reproducao automatica",
+        "description": "Ative ou desative a reproducao automatica na playlist"
       },
       "language": {
         "title": "Idioma",
-        "description": "Altere o idioma da plataforma entre inglês ou português"
+        "description": "Escolha entre ingles ou portugues",
+        "ptLabel": "Portugues",
+        "enLabel": "English"
       },
       "theme": {
         "title": "Tema",
         "description": "Alterne entre o tema escuro ou claro"
       }
     },
+    "passwordReset": {
+      "title": "Recuperacao de senha",
+      "emailLabel": "Informe seu e-mail",
+      "sendButton": "Enviar",
+      "sending": "Enviando...",
+      "newPasswordLabel": "Nova senha",
+      "confirmPasswordLabel": "Confirme a senha",
+      "submitButton": "Enviar",
+      "submitting": "Enviando...",
+      "tokenInvalid": "Token expirado ou invalido!",
+      "emailRequired": "Por favor, informe seu e-mail.",
+      "fieldsRequired": "Por favor, preencha todos os campos.",
+      "passwordMismatch": "As senhas nao coincidem. Por favor, verifique novamente.",
+      "successEmail": "E-mail enviado com sucesso!",
+      "successReset": "Senha alterada com sucesso!",
+      "errorEmailSend": "Nao conseguimos enviar o e-mail de recuperacao.",
+      "errorPasswordChange": "Ocorreu um erro ao mudar sua senha."
+    },
+    "activationResend": {
+      "title": "Reenviar e-mail de ativacao",
+      "emailLabel": "Informe seu e-mail cadastrado",
+      "sendButton": "Enviar",
+      "sending": "Enviando...",
+      "emailRequired": "Por favor, informe seu e-mail.",
+      "success": "E-mail reenviado com sucesso!",
+      "error": "Nao foi possivel reenviar o e-mail de ativacao."
+    },
     "footer": {
       "poweredBy": "Desenvolvido por",
       "likeIt": "Gostou? Deixe uma estrela no",
-      "repository": "repositório"
+      "repository": "repositorio"
     }
   },
   "en": {
@@ -142,7 +173,9 @@
       "terms": "I have read and agree with the",
       "termsLink": "Terms of Use and Privacy Policy",
       "registerBtn": "Register",
-      "errorChecked": "You must accept the terms of use"
+      "errorChecked": "You must accept the terms of use",
+      "successMessage": "Account created! You will receive an email to activate your access.",
+      "errorMessage": "We could not create your account. Please try again."
     },
     "settings": {
       "title": "Settings",
@@ -152,12 +185,41 @@
       },
       "language": {
         "title": "Language",
-        "description": "Switch the Platform language between English or Portuguese"
+        "description": "Switch the Platform language between English or Portuguese",
+        "ptLabel": "Portuguese",
+        "enLabel": "English"
       },
       "theme": {
         "title": "Theme",
         "description": "Switch between dark or light theme"
       }
+    },
+    "passwordReset": {
+      "title": "Password recovery",
+      "emailLabel": "Enter your email",
+      "sendButton": "Send",
+      "sending": "Sending...",
+      "newPasswordLabel": "New password",
+      "confirmPasswordLabel": "Confirm password",
+      "submitButton": "Send",
+      "submitting": "Sending...",
+      "tokenInvalid": "Token expired or invalid!",
+      "emailRequired": "Please enter your email.",
+      "fieldsRequired": "Please fill in all fields.",
+      "passwordMismatch": "Passwords do not match. Please double-check.",
+      "successEmail": "Email sent successfully!",
+      "successReset": "Password changed successfully!",
+      "errorEmailSend": "We could not send the recovery email.",
+      "errorPasswordChange": "An error occurred while changing your password."
+    },
+    "activationResend": {
+      "title": "Resend activation email",
+      "emailLabel": "Enter your registered email",
+      "sendButton": "Send",
+      "sending": "Sending...",
+      "emailRequired": "Please enter your email.",
+      "success": "Activation email resent successfully!",
+      "error": "Could not resend the activation email."
     },
     "footer": {
       "poweredBy": "Powered by",

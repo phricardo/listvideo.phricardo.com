@@ -1,6 +1,11 @@
 export const API_URL = (process.env.REACT_APP_LISTVIDEO_API_URL || "").trim();
 export const YOUTUBE_API_URL = `https://www.googleapis.com/youtube/v3/playlistItems?&key=${process.env.REACT_APP_API_KEY}&part=snippet`;
-const EMAIL_LANGUAGE_PARAM = "language=pt-BR";
+
+const normalizeEmailLanguage = (language) =>
+  language === "en" ? "en" : "pt-BR";
+
+const buildEmailLanguageParam = (language) =>
+  `language=${encodeURIComponent(normalizeEmailLanguage(language))}`;
 
 /* API CONFIGS */
 
@@ -28,9 +33,9 @@ export const USER_LOGOUT = () => {
   };
 };
 
-export const USER_POST = (body) => {
+export const USER_POST = (body, language) => {
   return {
-    url: `${API_URL}/auth/register?${EMAIL_LANGUAGE_PARAM}`,
+    url: `${API_URL}/auth/register?${buildEmailLanguageParam(language)}`,
     options: {
       method: "POST",
       headers: {
@@ -78,22 +83,22 @@ export const STATUS_FEATURES = () => {
   };
 };
 
-export const USER_RESEND_ACTIVATION_LINK = (email) => {
+export const USER_RESEND_ACTIVATION_LINK = (email, language) => {
   return {
     url: `${API_URL}/account/activation/resend?email=${encodeURIComponent(
       email
-    )}&${EMAIL_LANGUAGE_PARAM}`,
+    )}&${buildEmailLanguageParam(language)}`,
     options: {
       method: "POST",
     },
   };
 };
 
-export const USER_SEND_TOKEN_PASSWORD = (email) => {
+export const USER_SEND_TOKEN_PASSWORD = (email, language) => {
   return {
     url: `${API_URL}/account/password/forgot?email=${encodeURIComponent(
       email
-    )}&${EMAIL_LANGUAGE_PARAM}`,
+    )}&${buildEmailLanguageParam(language)}`,
     options: {
       method: "POST",
     },

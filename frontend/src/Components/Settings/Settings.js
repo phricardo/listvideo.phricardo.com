@@ -13,6 +13,18 @@ const Settings = () => {
   const { handleThemeChange, theme } = React.useContext(ThemeContext);
   const { autoplay, handleAutoplay } = React.useContext(AutoplayContext);
   const { handleLanguage, language } = React.useContext(LanguageContext);
+  const languageOptions = [
+    {
+      code: "pt",
+      label: lang[language]["settings"].language.ptLabel,
+      icon: "twemoji:flag-brazil",
+    },
+    {
+      code: "en",
+      label: lang[language]["settings"].language.enLabel,
+      icon: "la:flag-usa",
+    },
+  ];
 
   return (
     <>
@@ -32,22 +44,24 @@ const Settings = () => {
               />
             </div>
 
-            {/* <div>
+            <div>
               <h2>{lang[language]["settings"].language.title}</h2>
               <p>{lang[language]["settings"].language.description}</p>
-              <button
-                onClick={() => handleLanguage(language === "pt" ? "en" : "pt")}
-                className={styles.button}
-              >
-                {language === "pt" ? "Português" : "English"}
-                <Icon
-                  icon={
-                    language === "pt" ? "twemoji:flag-brazil" : "la:flag-usa"
-                  }
-                  className={styles.icon}
-                />
-              </button>
-            </div> */}
+              <div className={styles.languageOptions}>
+                {languageOptions.map((item) => (
+                  <button
+                    key={item.code}
+                    onClick={() => handleLanguage(item.code)}
+                    className={`${styles.button} ${
+                      language === item.code ? styles.buttonActive : ""
+                    }`}
+                  >
+                    {item.label}
+                    <Icon icon={item.icon} className={styles.icon} />
+                  </button>
+                ))}
+              </div>
+            </div>
 
             <div>
               <h2>{lang[language]["settings"].theme.title}</h2>
