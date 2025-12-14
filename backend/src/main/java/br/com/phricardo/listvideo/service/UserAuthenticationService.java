@@ -1,4 +1,4 @@
-﻿package br.com.phricardo.listvideo.service;
+package br.com.phricardo.listvideo.service;
 
 import static java.lang.String.format;
 import static java.util.Optional.of;
