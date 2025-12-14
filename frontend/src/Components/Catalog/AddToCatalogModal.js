@@ -1,6 +1,10 @@
-import React from "react";
+﻿import React from "react";
 import styles from "./Catalog.module.css";
-import IconPicker, { renderIcon, FALLBACK_ICON_KEY, normalizeIconKey } from "./IconPicker";
+import IconPicker, {
+  renderIcon,
+  FALLBACK_ICON_KEY,
+  normalizeIconKey,
+} from "./IconPicker";
 import {
   SAVED_COURSE_SAVE,
   SAVED_COURSE_UPDATE,
@@ -89,7 +93,9 @@ const AddToCatalogModal = ({ open, onClose, course, savedCourse }) => {
   const isEditing = Boolean(savedCourse?.id);
   const { language } = React.useContext(LanguageContext);
   const [customTitle, setCustomTitle] = React.useState(course?.title || "");
-  const [category, setCategory] = React.useState(savedCourse?.category || DEFAULT_CATEGORY);
+  const [category, setCategory] = React.useState(
+    savedCourse?.category || DEFAULT_CATEGORY
+  );
   const [iconKey, setIconKey] = React.useState(
     normalizeIconKey(savedCourse?.iconKey || FALLBACK_ICON_KEY)
   );

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { LanguageContext } from "../Context/LanguageContext";
 
 const types = {
@@ -24,7 +24,7 @@ const types = {
     pt: [
       "Pelo menos 3 e no máximo 18 caracteres.",
       "Pode ser composto por letras, números, pontos (.) e sublinhado (_).",
-      "Não pode começar com caractere especial, exceto com sublinhado (_). ",
+      "Não pode começar com caractere especial, exceto com sublinhado (_).",
     ],
     en: [
       "At least 3 and maximum 18 characters.",

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { useNavigate, useParams } from "react-router";
 import { USER_CHECK_EMAIL } from "../../Api";
 import Footer from "../Footer/Footer";
@@ -46,7 +46,7 @@ const LoginValidate = () => {
               ) : (
                 <>
                   <Confetti width={size.width} height={size.height} />
-                  <h1>🎉 Parabéns! E-mail verificado! 🎉</h1>
+                  <h1>Parabéns! E-mail verificado!</h1>
                   <p>Você já pode acessar a plataforma!</p>
                 </>
               )}

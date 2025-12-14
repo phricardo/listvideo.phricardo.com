@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useContext } from "react";
+﻿import React, { useState, useEffect, useCallback, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
@@ -96,6 +96,16 @@ const UserProfile = () => {
           security: "Segurança",
           ai: "IA",
           uiux: "UI/UX",
+          matematica: "Matemática",
+          portugues: "Português",
+          ciencias_natureza: "Ciências da Natureza",
+          ciencias_humanas: "Ciências Humanas",
+          redacao: "Redação",
+          engenharia: "Engenharia",
+          saude: "Saúde",
+          direito: "Direito",
+          negocios: "Negócios",
+          educacao: "Educação",
           general: "Geral",
         },
         en: {
@@ -108,6 +118,16 @@ const UserProfile = () => {
           security: "Security",
           ai: "AI",
           uiux: "UI/UX",
+          matematica: "Math",
+          portugues: "Portuguese",
+          ciencias_natureza: "Natural Sciences",
+          ciencias_humanas: "Human Sciences",
+          redacao: "Writing",
+          engenharia: "Engineering",
+          saude: "Health",
+          direito: "Law",
+          negocios: "Business",
+          educacao: "Education",
           general: "General",
         },
       }[language] ||

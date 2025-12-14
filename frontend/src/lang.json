@@ -1,9 +1,9 @@
 {
   "pt": {
     "header": {
-      "btn_home": "Inicio",
-      "btn_settings": "Configuracoes",
-      "btn_autoplay": "Reproducao automatica:",
+      "btn_home": "Início",
+      "btn_settings": "Configurações",
+      "btn_autoplay": "Reprodução automática:",
       "btn_theme": "Alternar tema",
       "link_login": "Login",
       "link_register": "Criar conta",
@@ -16,66 +16,66 @@
       "label": "Cole a URL da playlist abaixo:",
       "placeholder": "Cole a URL completa da playlist",
       "description": "Playlists do YouTube em uma plataforma completa",
-      "inputError": "Informe uma URL valida!",
+      "inputError": "Informe uma URL válida!",
       "button": "Reproduzir",
       "card1": {
-        "title": "Sem distracoes",
-        "description": "Interface apenas com o necessario"
+        "title": "Sem distrações",
+        "description": "Interface apenas com o necessário"
       },
       "card2": {
-        "title": "Emissao de certificados",
+        "title": "Emissão de certificados",
         "description": "Crie sua conta para emitir certificados"
       },
       "card3": {
         "title": "Progresso",
-        "description": "Em tempo real. De 0% ate 100%"
+        "description": "Em tempo real. De 0% até 100%"
       }
     },
     "playlist": {
       "assisted": "Assistidos",
-      "page": "Pagina:",
-      "btn_back_page": "Voltar pagina",
-      "btn_next_page": "Proxima pagina",
+      "page": "Página:",
+      "btn_back_page": "Voltar página",
+      "btn_next_page": "Próxima página",
       "author": "Autor(a):",
       "watched": "Marcar como assistido:",
-      "certificate_btn": "Gerar certificado de conclusao",
+      "certificate_btn": "Gerar certificado de conclusão",
       "certificate_btn_loading": "Gerando certificado",
-      "certificate_info": "Lembre-se, e preciso ter uma conta para gerar um certificado."
+      "certificate_info": "Lembre-se, é preciso ter uma conta para gerar um certificado."
     },
     "login": {
-      "title": "Acessar plataforma",
-      "emailLabel": "E-mail/Usuario:",
+      "title": "Acessar a plataforma",
+      "emailLabel": "E-mail/Usuário:",
       "passwordLabel": "Senha:",
       "loginButton": "Entrar",
-      "registerMessage": "Crie sua conta gratis hoje!",
+      "registerMessage": "Crie sua conta grátis hoje!",
       "registerLink": "Cadastrar",
-      "helpMessage": "Nao esta conseguindo acessar?",
+      "helpMessage": "Não está conseguindo acessar?",
       "resetPasswordLink": "Redefina sua senha",
-      "resendActivationLink": "Reenviar e-mail de ativacao"
+      "resendActivationLink": "Reenviar e-mail de ativação"
     },
     "register": {
       "title": "Cadastro na plataforma",
       "nameLabel": "Nome:",
       "emailLabel": "E-mail:",
-      "usernameLabel": "Usuario:",
+      "usernameLabel": "Usuário:",
       "passwordLabel": "Senha:",
       "terms": "Li e concordo com os",
-      "termsLink": "Termos de Uso e Politica de Privacidade",
+      "termsLink": "Termos de Uso e Política de Privacidade",
       "registerBtn": "Registrar",
-      "errorChecked": "E preciso aceitar os termos de uso",
-      "successMessage": "Conta criada! Voce recebera um e-mail para ativar seu acesso.",
-      "errorMessage": "Nao foi possivel criar sua conta. Tente novamente."
+      "errorChecked": "É preciso aceitar os termos de uso",
+      "successMessage": "Conta criada! Você receberá um e-mail para ativar seu acesso.",
+      "errorMessage": "Não foi possível criar sua conta. Tente novamente."
     },
     "settings": {
-      "title": "Configuracoes",
+      "title": "Configurações",
       "autoplay": {
-        "title": "Reproducao automatica",
-        "description": "Ative ou desative a reproducao automatica na playlist"
+        "title": "Reprodução automática",
+        "description": "Ative ou desative a reprodução automática na playlist"
       },
       "language": {
         "title": "Idioma",
-        "description": "Escolha entre ingles ou portugues",
-        "ptLabel": "Portugues",
+        "description": "Escolha entre inglês ou português",
+        "ptLabel": "Português",
         "enLabel": "English"
       },
       "theme": {
@@ -90,44 +90,44 @@
         {
           "title": "Dados que coletamos e uso",
           "items": [
-            "Coletamos nome, email, username e senha criptografada para autenticar voce e emitir certificados.",
-            "Usamos os dados apenas para login, emissao de certificados, envio de ativacao/redefinicao de senha e comunicacoes essenciais; nao vendemos nem compartilhamos com terceiros."
+            "Coletamos nome, e-mail, nome de usuário e senha criptografada para autenticar você e emitir certificados.",
+            "Usamos os dados apenas para login, emissão de certificados, envio de ativação/redefinição de senha e comunicações essenciais; não vendemos nem compartilhamos com terceiros."
           ]
         },
         {
-          "title": "Integracao com YouTube Data API",
+          "title": "Integração com a YouTube Data API",
           "items": [
-            "Listamos playlists e videos usando a YouTube Data API seguindo os termos do YouTube.",
-            "O conteudo pertence aos criadores originais; a ListVideo nao hospeda videos nem altera o material publicado."
+            "Listamos playlists e vídeos usando a YouTube Data API seguindo os termos do YouTube.",
+            "O conteúdo pertence aos criadores originais; a ListVideo não hospeda vídeos nem altera o material publicado."
           ]
         },
         {
-          "title": "Contas, ativacao e acesso",
+          "title": "Contas, ativação e acesso",
           "items": [
-            "O acesso depende da confirmacao por email; podemos revogar contas em caso de abuso, fraude ou risco de seguranca.",
-            "A plataforma e gratuita e pode ser interrompida, alterada ou removida sem aviso previo."
+            "O acesso depende da confirmação por e-mail; podemos revogar contas em caso de abuso, fraude ou risco de segurança.",
+            "A plataforma é gratuita e pode ser interrompida, alterada ou removida sem aviso prévio."
           ]
         },
         {
           "title": "Certificados",
           "items": [
-            "Certificados refletem seu progresso na plataforma e nao equivalem a validacao oficial do criador da playlist.",
-            "Guarde seu login; se perder o acesso, talvez nao seja possivel reemitir certificados anteriores."
+            "Os certificados refletem seu progresso na plataforma e não equivalem à validação oficial do criador da playlist.",
+            "Guarde seu login; se perder o acesso, talvez não seja possível reemitir certificados anteriores."
           ]
         },
         {
-          "title": "Seguranca e suporte",
+          "title": "Segurança e suporte",
           "items": [
-            "Senhas sao armazenadas com hash seguro no backend; nunca pediremos sua senha por email.",
-            "Duvidas, remocao de conta ou dados: escreva para support@listvideo.app."
+            "As senhas são armazenadas com hash seguro no backend; nunca pediremos sua senha por e-mail.",
+            "Dúvidas, remoção de conta ou dados: escreva para support@listvideo.app."
           ]
         }
       ],
-      "footerNote": "Ao continuar usando a ListVideo voce concorda com estes termos.",
-      "lastUpdate": "Ultima atualizacao: Dezembro/2025"
+      "footerNote": "Ao continuar usando a ListVideo você concorda com estes termos.",
+      "lastUpdate": "Última atualização: dezembro/2025"
     },
     "passwordReset": {
-      "title": "Recuperacao de senha",
+      "title": "Recuperação de senha",
       "emailLabel": "Informe seu e-mail",
       "sendButton": "Enviar",
       "sending": "Enviando...",
@@ -135,28 +135,28 @@
       "confirmPasswordLabel": "Confirme a senha",
       "submitButton": "Enviar",
       "submitting": "Enviando...",
-      "tokenInvalid": "Token expirado ou invalido!",
+      "tokenInvalid": "Token expirado ou inválido!",
       "emailRequired": "Por favor, informe seu e-mail.",
       "fieldsRequired": "Por favor, preencha todos os campos.",
-      "passwordMismatch": "As senhas nao coincidem. Por favor, verifique novamente.",
+      "passwordMismatch": "As senhas não coincidem. Por favor, verifique novamente.",
       "successEmail": "E-mail enviado com sucesso!",
       "successReset": "Senha alterada com sucesso!",
-      "errorEmailSend": "Nao conseguimos enviar o e-mail de recuperacao.",
+      "errorEmailSend": "Não conseguimos enviar o e-mail de recuperação.",
       "errorPasswordChange": "Ocorreu um erro ao mudar sua senha."
     },
     "activationResend": {
-      "title": "Reenviar e-mail de ativacao",
+      "title": "Reenviar e-mail de ativação",
       "emailLabel": "Informe seu e-mail cadastrado",
       "sendButton": "Enviar",
       "sending": "Enviando...",
       "emailRequired": "Por favor, informe seu e-mail.",
       "success": "E-mail reenviado com sucesso!",
-      "error": "Nao foi possivel reenviar o e-mail de ativacao."
+      "error": "Não foi possível reenviar o e-mail de ativação."
     },
     "footer": {
       "poweredBy": "Desenvolvido por",
       "likeIt": "Gostou? Deixe uma estrela no",
-      "repository": "repositorio"
+      "repository": "repositório"
     }
   },
   "en": {
