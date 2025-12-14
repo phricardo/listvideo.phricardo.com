@@ -6,6 +6,7 @@ import br.com.phricardo.listvideo.dto.response.UserResponseDTO;
 import br.com.phricardo.listvideo.dto.update.UserForgotPasswordRequestDTO;
 import br.com.phricardo.listvideo.service.UserAuthenticationService;
 import br.com.phricardo.listvideo.service.UserForgotPasswordService;
+import br.com.phricardo.listvideo.service.email.EmailLanguage;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -30,13 +31,17 @@ public class AccountController implements AccountControllerDoc {
   }
 
   @PostMapping("/activation/resend")
-  public void accountActivationEmailResend(@RequestParam("email") String email) {
-    service.accountActivationEmailResend(email);
+  public void accountActivationEmailResend(
+      @RequestParam("email") String email,
+      @RequestParam(value = "language", required = false) String language) {
+    service.accountActivationEmailResend(email, EmailLanguage.fromCode(language));
   }
 
   @PostMapping("/password/forgot")
-  public void sendPasswordResetLink(@RequestParam("email") String email) {
-    userForgotPasswordService.sendPasswordResetLink(email);
+  public void sendPasswordResetLink(
+      @RequestParam("email") String email,
+      @RequestParam(value = "language", required = false) String language) {
+    userForgotPasswordService.sendPasswordResetLink(email, EmailLanguage.fromCode(language));
   }
 
   @PostMapping("/password/reset")

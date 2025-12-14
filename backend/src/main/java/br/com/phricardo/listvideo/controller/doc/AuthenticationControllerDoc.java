@@ -10,12 +10,15 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Tag(name = "Authentication", description = "Endpoints for user authentication and registration")
 public interface AuthenticationControllerDoc {
 
   @Operation(summary = "User Registration", description = "Registers a new user.")
-  UserResponseDTO register(@RequestBody @Valid UserAuthRegisterRequestDTO registerRequestDTO);
+  UserResponseDTO register(
+      @RequestBody @Valid UserAuthRegisterRequestDTO registerRequestDTO,
+      @RequestParam(value = "language", required = false) String language);
 
   @Operation(
       summary = "User Login",

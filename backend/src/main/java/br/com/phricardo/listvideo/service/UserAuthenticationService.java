@@ -21,9 +21,10 @@ import br.com.phricardo.listvideo.exception.handler.ErrorKey;
 import br.com.phricardo.listvideo.model.EmailNotification;
 import br.com.phricardo.listvideo.model.User;
 import br.com.phricardo.listvideo.repository.UserAuthRepository;
+import br.com.phricardo.listvideo.service.email.EmailContentResolver;
+import br.com.phricardo.listvideo.service.email.EmailLanguage;
 import br.com.phricardo.listvideo.service.email.EmailTemplateBuilder;
 import br.com.phricardo.listvideo.service.email.SendNotification;
-
 import java.util.Map;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -51,6 +52,7 @@ public class UserAuthenticationService implements UserDetailsService {
   private final TokenService tokenService;
   private final SendNotification sendNotification;
   private final EmailTemplateBuilder emailTemplateBuilder;
+  private final EmailContentResolver emailContentResolver;
 
   @Value("${app.account_activation_url}")
   private String ACCOUNT_ACTIVATION_URL;
@@ -64,12 +66,13 @@ public class UserAuthenticationService implements UserDetailsService {
   }
 
   public UserResponseDTO registerUser(
-      @NonNull final UserAuthRegisterRequestDTO registerRequestDTO) {
+      @NonNull final UserAuthRegisterRequestDTO registerRequestDTO, EmailLanguage emailLanguage) {
+    final var resolvedLanguage = resolveLanguage(emailLanguage);
     return of(registerRequestDTO)
         .map(registerRequestMapper::from)
         .map(this::applyAutoActivation)
         .map(repository::save)
-        .map(this::sendAccountVerificationEmailSafely)
+        .map(user -> sendAccountVerificationEmailSafely(user, resolvedLanguage))
         .map(userResponseMapper::from)
         .orElseThrow(() -> new ApiException(ErrorKey.REGISTRATION_REQUEST_NULL));
   }
@@ -168,11 +171,12 @@ public class UserAuthenticationService implements UserDetailsService {
                     ErrorKey.ACCOUNT_ACTIVATION_NOTFOUND, Map.of("userId", userId), userId));
   }
 
-  public void accountActivationEmailResend(String email) {
+  public void accountActivationEmailResend(String email, EmailLanguage emailLanguage) {
+    final var resolvedLanguage = resolveLanguage(emailLanguage);
     final var user = getUserByEmail(email);
     final var userStatus = user.getIsAccountActivated();
     if (userStatus) throw new UserActivationException();
-    sendAccountVerificationEmail(user);
+    sendAccountVerificationEmail(user, resolvedLanguage);
   }
 
   private User applyAutoActivation(@NonNull User user) {
@@ -182,34 +186,43 @@ public class UserAuthenticationService implements UserDetailsService {
     return user;
   }
 
-  private User sendAccountVerificationEmailSafely(@NonNull User user) {
+  private User sendAccountVerificationEmailSafely(
+      @NonNull User user, EmailLanguage emailLanguage) {
     if (autoActivateUsers) {
       return user;
     }
     try {
-      sendAccountVerificationEmail(user);
+      sendAccountVerificationEmail(user, emailLanguage);
     } catch (Exception ex) {
       log.error("Failed to send account activation email to {}", user.getEmail(), ex);
     }
     return user;
   }
 
-  private void sendAccountVerificationEmail(@NonNull User user) {
+  private void sendAccountVerificationEmail(
+      @NonNull User user, EmailLanguage emailLanguage) {
     if (autoActivateUsers) {
       return;
     }
+    final var locale = emailLanguage.getLocale();
+    final var emailCopy = emailContentResolver.getAccountActivationContent(locale);
     final var emailBody =
         emailTemplateBuilder.buildActionEmail(
             user.getName(),
-            "Welcome to ListVideo!<br> Before you start enjoying everything we have to offer, remember to activate your account.",
-            "Activate my account",
-            format("%s%s", ACCOUNT_ACTIVATION_URL, user.getUserId()));
+            emailCopy.content(),
+            emailCopy.actionLabel(),
+            format("%s%s", ACCOUNT_ACTIVATION_URL, user.getUserId()),
+            locale);
 
     sendNotification.send(
         EmailNotification.builder()
             .to(user.getEmail())
-            .subject("ListVideo - Verify Your Account")
+            .subject(emailCopy.subject())
             .htmlContent(emailBody)
             .build());
+  }
+
+  private EmailLanguage resolveLanguage(EmailLanguage emailLanguage) {
+    return emailLanguage != null ? emailLanguage : EmailLanguage.EN;
   }
 }

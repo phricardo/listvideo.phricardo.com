@@ -21,13 +21,17 @@ public interface AccountControllerDoc {
   @Operation(
       summary = "User account activation resend",
       description = "Resend user account activation link to email")
-  void accountActivationEmailResend(@RequestParam("email") String email);
+  void accountActivationEmailResend(
+      @RequestParam("email") String email,
+      @RequestParam(value = "language", required = false) String language);
 
   @Operation(
       summary = "Send Password Reset Token",
       description =
           "Generates a password reset token and sends it to the user's email if they are registered.")
-  void sendPasswordResetLink(@RequestParam("email") String email);
+  void sendPasswordResetLink(
+      @RequestParam("email") String email,
+      @RequestParam(value = "language", required = false) String language);
 
   @Operation(
       summary = "Reset User Password if Token is Valid",

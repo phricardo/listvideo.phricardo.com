@@ -11,9 +11,10 @@ import br.com.phricardo.listvideo.model.User;
 import br.com.phricardo.listvideo.model.UserPasswordResetToken;
 import br.com.phricardo.listvideo.repository.UserAuthRepository;
 import br.com.phricardo.listvideo.repository.UserPasswordResetTokenRepository;
+import br.com.phricardo.listvideo.service.email.EmailContentResolver;
+import br.com.phricardo.listvideo.service.email.EmailLanguage;
 import br.com.phricardo.listvideo.service.email.EmailTemplateBuilder;
 import br.com.phricardo.listvideo.service.email.SendNotification;
-
 import java.time.LocalDateTime;
 import java.util.Map;
 import java.util.UUID;
@@ -29,6 +30,7 @@ public class UserForgotPasswordService {
 
   private final EmailTemplateBuilder emailTemplateBuilder;
   private final SendNotification sendNotification;
+  private final EmailContentResolver emailContentResolver;
   private final UserPasswordResetTokenRepository userPasswordResetTokenRepository;
   private final UserForgotPasswordUpdateMapper userForgotPasswordUpdateMapper;
   private final UserForgotPasswordResponseMapper userForgotPasswordResponseMapper;
@@ -37,11 +39,17 @@ public class UserForgotPasswordService {
   @Value("${app.password_recovery_url}")
   private String PASSWORD_RECOVERY_URL;
 
-  public void sendPasswordResetLink(String email) {
+  public void sendPasswordResetLink(String email, EmailLanguage emailLanguage) {
+    final var resolvedLanguage = resolveLanguage(emailLanguage);
     final var user = findUserByEmail(email);
     final var token = generateToken(user);
-    final var emailBody = buildEmailBody(user.getName(), token);
-    sendPasswordResetEmail(user.getEmail(), emailBody);
+    final var locale = resolvedLanguage.getLocale();
+    final var emailCopy = emailContentResolver.getPasswordResetContent(locale);
+    final var resetLink = PASSWORD_RECOVERY_URL + token;
+    final var emailBody =
+        emailTemplateBuilder.buildActionEmail(
+            user.getName(), emailCopy.content(), emailCopy.actionLabel(), resetLink, locale);
+    sendPasswordResetEmail(user.getEmail(), emailCopy.subject(), emailBody);
   }
 
   private String generateToken(User user) {
@@ -107,24 +115,16 @@ public class UserForgotPasswordService {
     return LocalDateTime.now().plusMinutes(EXPIRATION);
   }
 
-  private String buildEmailBody(String userName, String token) {
-    final var resetLink = PASSWORD_RECOVERY_URL + token;
-
-    return emailTemplateBuilder.buildActionEmail(
-        userName, getEmailBodyContent(), "Recover Password", resetLink);
-  }
-
-  private String getEmailBodyContent() {
-    return "We received a request to reset the password for your account. To proceed with the password reset, please click on the link below.<br>"
-        + "If you did not request a password reset, you can safely ignore this email. Your account remains secure.";
-  }
-
-  private void sendPasswordResetEmail(String recipient, String emailBody) {
+  private void sendPasswordResetEmail(String recipient, String subject, String emailBody) {
     sendNotification.send(
         EmailNotification.builder()
             .to(recipient)
-            .subject("ListVideo - Password recovery")
+            .subject(subject)
             .htmlContent(emailBody)
             .build());
+  }
+
+  private EmailLanguage resolveLanguage(EmailLanguage emailLanguage) {
+    return emailLanguage != null ? emailLanguage : EmailLanguage.EN;
   }
 }
