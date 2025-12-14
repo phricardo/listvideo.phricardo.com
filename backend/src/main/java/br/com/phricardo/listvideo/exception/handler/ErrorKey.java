@@ -28,7 +28,8 @@ public enum ErrorKey {
   CERTIFICATE_NOT_FOUND("certificate.not.found"),
   ACCOUNT_ACTIVATION_NOTFOUND("account.activation.notfound"),
   SAVED_COURSE_NOT_FOUND("saved.course.not.found"),
-  SAVED_COURSE_AUTHOR_IMMUTABLE("saved.course.author.immutable");
+  SAVED_COURSE_AUTHOR_IMMUTABLE("saved.course.author.immutable"),
+  FEATURE_ACCESS_DENIED("feature.access.denied");
 
   private final String key;
 }

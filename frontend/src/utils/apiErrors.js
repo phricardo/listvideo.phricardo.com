@@ -44,6 +44,7 @@ const ERROR_MESSAGES = {
     "Certificado não encontrado. Gere novamente a partir da playlist.",
   "account.activation.notfound":
     "Não foi possível ativar a conta. Solicite um novo e-mail de ativação.",
+  "feature.access.denied": "Você não tem permissão para executar essa ação.",
 };
 
 export const safeParseJson = async (response) => {

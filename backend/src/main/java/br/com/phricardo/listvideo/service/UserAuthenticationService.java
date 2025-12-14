@@ -1,4 +1,4 @@
-package br.com.phricardo.listvideo.service;
+﻿package br.com.phricardo.listvideo.service;
 
 import static java.lang.String.format;
 import static java.util.Optional.of;
@@ -25,7 +25,10 @@ import br.com.phricardo.listvideo.service.email.EmailContentResolver;
 import br.com.phricardo.listvideo.service.email.EmailLanguage;
 import br.com.phricardo.listvideo.service.email.EmailTemplateBuilder;
 import br.com.phricardo.listvideo.service.email.SendNotification;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -60,6 +63,10 @@ public class UserAuthenticationService implements UserDetailsService {
   @Value("${app.auto_activate_users:false}")
   private boolean autoActivateUsers;
 
+  private static final String FEATURE_CREATE_SESSION = "create:session";
+  private static final String FEATURE_READ_SESSION = "read:session";
+  private static final String FEATURE_READ_ACTIVATION_TOKEN = "read:activation_token";
+
   @Override
   public UserDetails loadUserByUsername(final String login) throws UsernameNotFoundException {
     return repository.findByEmailOrUsername(login, login);
@@ -71,6 +78,7 @@ public class UserAuthenticationService implements UserDetailsService {
     return of(registerRequestDTO)
         .map(registerRequestMapper::from)
         .map(this::applyAutoActivation)
+        .map(this::applyInitialFeatures)
         .map(repository::save)
         .map(user -> sendAccountVerificationEmailSafely(user, resolvedLanguage))
         .map(userResponseMapper::from)
@@ -97,6 +105,7 @@ public class UserAuthenticationService implements UserDetailsService {
                     .map(
                         user -> {
                           if (!user.getIsAccountActivated()) throw new EmailNotVerifiedException();
+                          requireFeature(user, FEATURE_CREATE_SESSION);
                           return user;
                         })
                     .map(tokenService::generate)
@@ -116,7 +125,9 @@ public class UserAuthenticationService implements UserDetailsService {
   }
 
   public UserResponseDTO getCurrentUserDTO() {
-    return userResponseMapper.from(getCurrentUser());
+    final var currentUser = getCurrentUser();
+    requireFeature(currentUser, FEATURE_READ_SESSION);
+    return userResponseMapper.from(currentUser);
   }
 
   public User getUserByUsername(String username) {
@@ -160,7 +171,9 @@ public class UserAuthenticationService implements UserDetailsService {
         .findByUserIdAndIsAccountActivatedFalse(userId)
         .map(
             user -> {
+              requireFeature(user, FEATURE_READ_ACTIVATION_TOKEN);
               user.setIsAccountActivated(true);
+              applyActivatedFeatures(user);
               return user;
             })
         .map(repository::save)
@@ -184,6 +197,40 @@ public class UserAuthenticationService implements UserDetailsService {
       user.setIsAccountActivated(true);
     }
     return user;
+  }
+
+  private User applyInitialFeatures(@NonNull User user) {
+    if (Boolean.TRUE.equals(user.getIsAccountActivated())) {
+      applyActivatedFeatures(user);
+      return user;
+    }
+    user.setFeatures(new ArrayList<>(List.of(FEATURE_READ_ACTIVATION_TOKEN)));
+    return user;
+  }
+
+  private void applyActivatedFeatures(@NonNull User user) {
+    final var features = new ArrayList<>(Optional.ofNullable(user.getFeatures()).orElseGet(ArrayList::new));
+    features.remove(FEATURE_READ_ACTIVATION_TOKEN);
+    addFeatureIfMissing(features, FEATURE_CREATE_SESSION);
+    addFeatureIfMissing(features, FEATURE_READ_SESSION);
+    user.setFeatures(features);
+  }
+
+  private void addFeatureIfMissing(List<String> features, String feature) {
+    if (!features.contains(feature)) {
+      features.add(feature);
+    }
+  }
+
+  private void requireFeature(User user, String feature) {
+    final var hasFeature =
+        Optional.ofNullable(user)
+            .map(User::getFeatures)
+            .map(list -> list.contains(feature))
+            .orElse(false);
+    if (!hasFeature) {
+      throw new ApiException(ErrorKey.FEATURE_ACCESS_DENIED, Map.of("feature", feature), feature);
+    }
   }
 
   private User sendAccountVerificationEmailSafely(

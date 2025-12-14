@@ -13,20 +13,24 @@ import jakarta.persistence.Id;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 import java.util.UUID;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.hibernate.type.SqlTypes;
 
 @Data
 @NoArgsConstructor
@@ -71,6 +75,10 @@ public class User implements UserDetails {
       nullable = false,
       columnDefinition = "boolean default false")
   private Boolean isVerifiedAccount;
+
+  @Column(name = "features", nullable = false, columnDefinition = "text[]")
+  @JdbcTypeCode(SqlTypes.ARRAY)
+  private List<String> features = new ArrayList<>();
 
   @CreatedDate
   @Setter(PRIVATE)
