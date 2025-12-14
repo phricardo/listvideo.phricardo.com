@@ -65,7 +65,7 @@ export const UserStorage = ({ children }) => {
       } else {
         const message = toastApiError(
           payload,
-          "Nao foi possivel realizar o login."
+          "Não foi possível realizar o login."
         );
         throw new Error(message);
       }
@@ -96,7 +96,7 @@ export const UserStorage = ({ children }) => {
         const payload = await safeParseJson(response);
         const message = toastApiError(
           payload,
-          "Nao foi possivel gerar o certificado. Tente novamente."
+          "Não foi possível gerar o certificado. Tente novamente."
         );
         setError(new Error(message));
       }
@@ -113,7 +113,7 @@ export const UserStorage = ({ children }) => {
       if (!confirmLogout) return;
 
       const logoutErrorMessage =
-        "Nao foi possivel encerrar a sessao. Tente novamente.";
+        "Não foi possível encerrar a sessão. Tente novamente.";
 
       try {
         setError(null);

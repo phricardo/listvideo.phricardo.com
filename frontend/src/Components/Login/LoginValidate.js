@@ -22,8 +22,6 @@ const LoginValidate = () => {
         const response = await fetch(url, options);
         const data = await response.json();
 
-        console.log(data);
-
         setCheck(data);
       } catch (error) {
         console.error(error);
@@ -48,8 +46,8 @@ const LoginValidate = () => {
               ) : (
                 <>
                   <Confetti width={size.width} height={size.height} />
-                  <h1>🎊 Parabéns! E-Mail Verificado! 🎊</h1>
-                  <p>Você já pode acessar a Plataforma!</p>
+                  <h1>🎉 Parabéns! E-mail verificado! 🎉</h1>
+                  <p>Você já pode acessar a plataforma!</p>
                 </>
               )}
             </div>

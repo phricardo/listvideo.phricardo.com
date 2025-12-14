@@ -19,7 +19,7 @@ const Settings = () => {
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.container}>
-          <h1>{lang[language]["settings"].title} ⚙️</h1>
+          <h1>{lang[language]["settings"].title}</h1>
 
           <div className={styles.settings}>
             <div>

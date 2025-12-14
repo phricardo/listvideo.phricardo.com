@@ -49,18 +49,18 @@ const PasswordSendLink = () => {
     setIsLoading(true);
 
     if (email.value.trim() === "") {
-      setError("Por favor, informe seu email.");
+      setError("Por favor, informe seu e-mail.");
     } else {
       const { url, options } = USER_SEND_TOKEN_PASSWORD(email.value);
       const response = await fetch(url, options);
       const payload = await safeParseJson(response);
 
       if (response.ok) {
-        toastApiSuccess("Email enviado com sucesso!");
+        toastApiSuccess("E-mail enviado com sucesso!");
       } else {
         const message = toastApiError(
           payload,
-          "Nao conseguimos enviar o e-mail de recuperacao."
+          "Não conseguimos enviar o e-mail de recuperação."
         );
         setError(message);
       }
@@ -81,7 +81,7 @@ const PasswordSendLink = () => {
     }
 
     if (newPassword.value !== confirmPassword.value) {
-      setError("As senhas nao coincidem. Por favor, verifique novamente.");
+      setError("As senhas não coincidem. Por favor, verifique novamente.");
       return;
     }
 
@@ -117,11 +117,11 @@ const PasswordSendLink = () => {
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.box}>
-          <h1>Recuperacao de senha</h1>
+          <h1>Recuperação de senha</h1>
           {!token && (
             <form className={styles.form} onSubmit={handleEmailSubmit}>
               <Input
-                label="Informe seu email"
+                label="Informe seu e-mail"
                 name="email"
                 type="text"
                 {...email}
@@ -156,7 +156,7 @@ const PasswordSendLink = () => {
               </button>
             </form>
           )}
-          {token && !isValidToken && <p>Token expirado ou invÇ­lido!</p>}
+          {token && !isValidToken && <p>Token expirado ou inválido!</p>}
           {error && <p>{error}</p>}
         </div>
       </div>

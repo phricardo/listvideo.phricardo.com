@@ -37,11 +37,7 @@ public class SendNotification {
         final var template = resourceReader.readString(EMAIL_BASE_TEMPLATE);
         final var request = mailgunRequestMapper.toRequest(emailNotification);
 
-        final var inlineLogo =
-                new FormData(
-                        INLINE_LOGO_CONTENT_TYPE,
-                        INLINE_LOGO_FILENAME,
-                        resourceReader.readBytes(INLINE_LOGO_PATH));
+        final var inlineLogo = loadInlineLogo();
 
         final var response =
                 mailgunFeignClient.sendMessage(
@@ -53,6 +49,18 @@ public class SendNotification {
                         inlineLogo);
 
         log.info("Mailgun e-mail response: id={}, message={}", response.getId(), response.getMessage());
+    }
+
+    private FormData loadInlineLogo() {
+        try {
+            return new FormData(
+                    INLINE_LOGO_CONTENT_TYPE,
+                    INLINE_LOGO_FILENAME,
+                    resourceReader.readBytes(INLINE_LOGO_PATH));
+        } catch (RuntimeException ex) {
+            log.warn("Inline logo not found or unreadable; sending e-mail without inline image.", ex);
+            return null;
+        }
     }
 
     private String wrap(final String title, final String innerHtml, final String templateEmail) {

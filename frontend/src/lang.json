@@ -3,28 +3,28 @@
     "header": {
       "btn_home": "Início",
       "btn_settings": "Configurações",
-      "btn_autoplay": "Reprodução Automática:",
-      "btn_theme": "Alternar Tema",
+      "btn_autoplay": "Reprodução automática:",
+      "btn_theme": "Alternar tema",
       "link_login": "Login",
       "link_register": "Criar conta",
-      "open_menu": "Abrir Menu",
-      "close_menu": "Fechar Menu",
+      "open_menu": "Abrir menu",
+      "close_menu": "Fechar menu",
       "logout": "Sair",
-      "logoutConfirm": "Deseja sair de sua conta?"
+      "logoutConfirm": "Deseja sair da sua conta?"
     },
     "home": {
-      "label": "Cole a URL da Playlist abaixo:",
-      "placeholder": "Cole a URL completa da Playlist",
+      "label": "Cole a URL da playlist abaixo:",
+      "placeholder": "Cole a URL completa da playlist",
       "description": "Playlists do YouTube em uma plataforma completa",
       "inputError": "Informe uma URL válida!",
       "button": "Reproduzir",
       "card1": {
-        "title": "Sem distratores",
-        "description": "Interface somente com o necessário"
+        "title": "Sem distrações",
+        "description": "Interface apenas com o necessário"
       },
       "card2": {
-        "title": "Emissão de Certificados",
-        "description": "Crie sua conta para emitir seus certificados"
+        "title": "Emissão de certificados",
+        "description": "Crie sua conta para emitir certificados"
       },
       "card3": {
         "title": "Progresso",
@@ -34,42 +34,42 @@
     "playlist": {
       "assisted": "Assistidos",
       "page": "Página:",
-      "btn_back_page": "Voltar Página",
-      "btn_next_page": "Próxima Página",
+      "btn_back_page": "Voltar página",
+      "btn_next_page": "Próxima página",
       "author": "Autor(a):",
       "watched": "Marcar como assistido:",
-      "certificate_btn": "Gerar Certificado de Conclusão",
-      "certificate_btn_loading": "Gerando Certificado",
-      "certificate_info": "Lembre-se, é preciso de uma conta para gerar um certificado."
+      "certificate_btn": "Gerar certificado de conclusão",
+      "certificate_btn_loading": "Gerando certificado",
+      "certificate_info": "Lembre-se, é preciso ter uma conta para gerar um certificado."
     },
     "login": {
-      "title": "Acessar Plataforma",
-      "emailLabel": "E-Mail/Usuário:",
+      "title": "Acessar plataforma",
+      "emailLabel": "E-mail/Usuário:",
       "passwordLabel": "Senha:",
       "loginButton": "Entrar",
       "registerMessage": "Crie sua conta grátis hoje!",
       "registerLink": "Cadastrar"
     },
     "register": {
-      "title": "Cadastro na Plataforma",
+      "title": "Cadastro na plataforma",
       "nameLabel": "Nome:",
       "emailLabel": "E-mail:",
       "usernameLabel": "Usuário:",
-      "passwordLabel": "Senha",
+      "passwordLabel": "Senha:",
       "terms": "Li e concordo com os",
       "termsLink": "Termos de Uso e Política de Privacidade",
       "registerBtn": "Registrar",
-      "errorChecked": "Precisa aceitar os termos de uso"
+      "errorChecked": "É preciso aceitar os termos de uso"
     },
     "settings": {
       "title": "Configurações",
       "autoplay": {
-        "title": "Reprodução Automatica",
-        "description": "Ative ou desabilite a reprodução automática na Playlist"
+        "title": "Reprodução automática",
+        "description": "Ative ou desative a reprodução automática na playlist"
       },
       "language": {
         "title": "Idioma",
-        "description": "Alterne o idioma da Plataforma entre Inglês ou Português"
+        "description": "Altere o idioma da plataforma entre inglês ou português"
       },
       "theme": {
         "title": "Tema",
@@ -78,7 +78,7 @@
     },
     "footer": {
       "poweredBy": "Desenvolvido por",
-      "likeIt": "Gostou? Deixe uma ⭐ no",
+      "likeIt": "Gostou? Deixe uma estrela no",
       "repository": "repositório"
     }
   },
@@ -161,7 +161,7 @@
     },
     "footer": {
       "poweredBy": "Powered by",
-      "likeIt": "Did you like it? Leave a ⭐ in",
+      "likeIt": "Did you like it? Leave a star in the",
       "repository": "repository"
     }
   }

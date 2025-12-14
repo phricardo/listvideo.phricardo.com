@@ -18,10 +18,10 @@ const InputUsernameAvailability = ({
   const checkAvailability = async (value) => {
     if (value) {
       try {
-        setIsLoading(true); // Mostra o ícone de carregamento
+        setIsLoading(true);
         const { url, options } = USER_CHECK_USERNAME(value);
         const response = await fetch(url, options);
-        if (!response.ok) throw new Error("Erro ao verificar disponibilidade");
+        if (!response.ok) throw new Error("Erro ao verificar disponibilidade.");
         const data = await response.json();
         setIsAvailable(data.availability);
       } catch (error) {
@@ -30,7 +30,7 @@ const InputUsernameAvailability = ({
           error
         );
       } finally {
-        setIsLoading(false); // Remove o ícone de carregamento após a resposta
+        setIsLoading(false);
       }
     }
   };

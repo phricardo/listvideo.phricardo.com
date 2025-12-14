@@ -28,8 +28,6 @@ const Register = () => {
   const { error, request, loading } = useFetch();
   const navigate = useNavigate();
 
-  // const [email, setEmail] = React.useState("");
-
   React.useEffect(() => {
     if (login) navigate("/");
   }, [login, navigate]);
@@ -41,8 +39,6 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
-    console.log(email);
 
     if (isChecked) {
       if (
@@ -58,11 +54,12 @@ const Register = () => {
           password: password.value,
         });
         const { response } = await request(url, options, {
-          fallbackMessage: "Nao foi possivel criar sua conta. Tente novamente.",
+          fallbackMessage:
+            "Não foi possível criar sua conta. Tente novamente.",
         });
         if (response?.ok) {
           toastApiSuccess(
-            "Conta criada! Voce recebera um e-mail para ativar seu acesso."
+            "Conta criada! Você receberá um e-mail para ativar seu acesso."
           );
           navigate("/login");
         }
@@ -89,7 +86,7 @@ const Register = () => {
       <div className={styles.login}>
         <div className={styles.container}>
           <div className={styles.wrapper}>
-            <h1>{lang[language]["register"].title} 🎉</h1>
+            <h1>{lang[language]["register"].title}</h1>
             <form className={styles.form} onSubmit={handleSubmit}>
               <Input
                 label={lang[language]["register"].nameLabel}
@@ -99,7 +96,7 @@ const Register = () => {
               />
 
               <div className={styles.emailGroup}>
-                <label>Email: </label>
+                <label>E-mail: </label>
                 <Email
                   className={styles.myWrapper}
                   baseList={baseList}
@@ -110,14 +107,14 @@ const Register = () => {
               </div>
 
               <InputUsernameAvailability
-                label="Usuário:"
+                label={lang[language]["register"].usernameLabel}
                 name="username"
                 type="text"
                 {...username}
               />
 
               <PasswordShowHide
-                label="Senha:"
+                label={lang[language]["register"].passwordLabel}
                 name="password"
                 {...password}
               />
@@ -154,4 +151,3 @@ const Register = () => {
 };
 
 export default Register;
-

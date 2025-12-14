@@ -1,4 +1,6 @@
 spring:
+  config:
+    import: optional:file:.env.dev
   datasource:
     driver-class-name: org.postgresql.Driver
     url: ${SPRING_DATASOURCE_URL}
@@ -6,15 +8,15 @@ spring:
     password: ${SPRING_DATASOURCE_PASSWORD}
   server:
     error:
-      include-stacktrace: ${SPRING_SERVER_ERROR_INCLUDE_STACKTRACE}
+      include-stacktrace: never
   jpa:
     show-sql: ${SPRING_JPA_SHOW_SQL}
     properties:
       hibernate:
-        dialect: ${SPRING_JPA_HIBERNATE_DIALECT}
-        format_sql: ${SPRING_JPA_HIBERNATE_FORMAT_SQL}
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: ${SPRING_JPA_HIBERNATE_FORMAT_SQL:false}
         hbm2ddl:
-          auto: ${SPRING_JPA_HBM2DDL_AUTO}
+          auto: none
   flyway:
     enabled: true
     baseline-on-migrate: true

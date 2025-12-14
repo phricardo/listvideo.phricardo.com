@@ -3,7 +3,7 @@ import styles from "./UserName.module.css";
 
 function UserName({ username, isVerified }) {
   return (
-    <div className={styles.username} title='VERIFICADO'>
+    <div className={styles.username} title="Verificado">
       <span>@{username}</span>
       {isVerified && 
         <svg

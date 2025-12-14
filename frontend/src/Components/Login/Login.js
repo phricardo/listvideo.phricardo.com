@@ -35,7 +35,7 @@ const Login = () => {
       <div className={styles.login}>
         <div className={styles.container}>
           <div className={styles.wrapper}>
-            <h1>{lang[language]["login"].title} 👋</h1>
+            <h1>{lang[language]["login"].title}</h1>
             <form className={styles.form} onSubmit={handleSubmit}>
               <Input
                 label={lang[language]["login"].emailLabel}
@@ -62,8 +62,8 @@ const Login = () => {
               <Link to="/register">{lang[language]["login"].registerLink}</Link>
             </div>
             <div className={styles.register}>
-              <p>Não está conseguindo acessar? </p>
-              <Link to="/forgot-password">Redefina a sua senha</Link>
+              <p>Não está conseguindo acessar?</p>
+              <Link to="/forgot-password">Redefina sua senha</Link>
               <Link to="/resend-activation">Reenviar e-mail de ativação</Link>
             </div>
           </div>

@@ -11,10 +11,10 @@ const ServiceStatusBanner = () => {
   return (
     <div className={styles.banner} role="alert">
       <div className={styles.content}>
-        <p className={styles.title}>Servicos parcialmente disponiveis</p>
+        <p className={styles.title}>Serviços parcialmente disponíveis</p>
         <p className={styles.message}>
-          Nao conseguimos contactar a API agora. Algumas funcionalidades podem
-          nao funcionar ate que a conexao seja restabelecida.
+          Não conseguimos contatar a API agora. Algumas funcionalidades podem
+          não funcionar até que a conexão seja restabelecida.
         </p>
       </div>
       <button

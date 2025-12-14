@@ -5,13 +5,13 @@ const types = {
   email: {
     regex:
       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    pt: ["Preencha um email válido."],
+    pt: ["Preencha um e-mail válido."],
     en: ["Fill in a valid email."],
   },
   password: {
     regex: /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-_]).{8,}$/,
     pt: [
-      "Precisa ter 1 caracter maíusculo, 1 minúsculo e 1 digito.",
+      "Precisa ter 1 caractere maiúsculo, 1 minúsculo e 1 dígito.",
       "Mínimo de 8 caracteres.",
     ],
     en: [

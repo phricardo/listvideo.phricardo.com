@@ -45,20 +45,20 @@ const ResendLinkActivation = () => {
     }
 
     if (email.value.trim() === "") {
-      setError("Por favor, informe seu email.");
+      setError("Por favor, informe seu e-mail.");
     } else {
       const { url, options } = USER_RESEND_ACTIVATION_LINK(email.value);
       const response = await fetch(url, options);
       const payload = await safeParseJson(response);
 
       if (response.ok) {
-        toastApiSuccess("Email reenviado com sucesso!");
+        toastApiSuccess("E-mail reenviado com sucesso!");
         navigate("/login");
       } else {
         const apiError = getFirstApiError(payload);
         const message = toastApiError(
           apiError,
-          "Nao foi possivel reenviar o e-mail de ativacao."
+          "Não foi possível reenviar o e-mail de ativação."
         );
         setError(message);
         if (apiError?.code === "user.already.activated") {
@@ -74,11 +74,11 @@ const ResendLinkActivation = () => {
       <Header />
       <div className={styles.wrapper}>
         <div className={styles.box}>
-          <h1>Reenviar e-mail de ativacao</h1>
+          <h1>Reenviar e-mail de ativação</h1>
           {!token && (
             <form className={styles.form} onSubmit={handleEmailSubmit}>
               <Input
-                label="Informe seu email cadastrado"
+                label="Informe seu e-mail cadastrado"
                 name="email"
                 type="text"
                 {...email}

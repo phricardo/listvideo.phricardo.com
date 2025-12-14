@@ -20,7 +20,7 @@ const TermsOfUse = () => {
               <p className={styles.text}>
                 A ListVideo valoriza a privacidade de seus usuários e tem como
                 compromisso proteger suas informações pessoais. Neste documento,
-                explicamos de forma transparente como nossa Plataforma funciona.
+                explicamos de forma transparente como nossa plataforma funciona.
               </p>
               <ol className={styles.list}>
                 <li>
@@ -28,7 +28,7 @@ const TermsOfUse = () => {
                   pessoais, incluindo seu nome de usuário e detalhes de login,
                   para fornecer uma experiência segura e personalizada em nossa
                   plataforma. Todas as informações sensíveis são criptografadas
-                  para garantir a proteção adicional.
+                  para garantir proteção adicional.
                 </li>
                 <li>
                   <strong>Uso de Dados:</strong> Utilizamos seu nome de usuário
@@ -45,7 +45,7 @@ const TermsOfUse = () => {
                   <strong>Conteúdo das Playlists:</strong> Não somos
                   responsáveis pelo conteúdo das playlists exibidas em nossa
                   plataforma, os quais são de responsabilidade do autor da
-                  playlist e estão sujeitas aos termos de uso do próprio
+                  playlist e estão sujeitos aos termos de uso do próprio
                   YouTube.
                 </li>
                 <li>
@@ -56,7 +56,7 @@ const TermsOfUse = () => {
                 <li>
                   <strong>Disponibilidade Gratuita:</strong> Nossa solução é
                   gratuita e seu custo online não é transferido para o usuário.
-                  Portanto, a disponibilidade e funcionamento da plataforma
+                  Portanto, a disponibilidade e o funcionamento da plataforma
                   podem ser encerrados sem aviso prévio.
                 </li>
                 <li>
@@ -66,8 +66,8 @@ const TermsOfUse = () => {
                 </li>
                 <li>
                   <strong>Certificados:</strong> Os certificados emitidos pela
-                  ListVideo não são reconhecidos necessariamente pelo criador de
-                  conteúdo da playlist e não são “assinados” por eles.
+                  ListVideo não são necessariamente reconhecidos pelo criador do
+                  conteúdo da playlist e não são assinados por eles.
                 </li>
                 <li>
                   <strong>
@@ -85,21 +85,21 @@ const TermsOfUse = () => {
             <>
               <h1 className={styles.title}>Terms of Use and Privacy Policy</h1>
               <p className={styles.text}>
-                ListVideo values the privacy of its users and has the commitment
-                to protect your personal information. In this document, we
-                transparently explain how our Platform works.
+                ListVideo values the privacy of its users and is committed to
+                protecting their personal information. In this document, we
+                explain transparently how our platform works.
               </p>
               <ol className={styles.list}>
                 <li>
-                  <strong>Data Collection:</strong> We collect information
-                  personal data, including your username and login details, to
-                  provide a safe and personalized experience on our platform.
+                  <strong>Data Collection:</strong> We collect personal
+                  information, including your username and login details, to
+                  provide a secure and personalized experience on our platform.
                   All sensitive information is encrypted to provide additional
                   protection.
                 </li>
                 <li>
-                  <strong>Use of Data:</strong> We use your username for issuing
-                  certificates only and we do not share or we sell your
+                  <strong>Use of Data:</strong> We use your username only for
+                  issuing certificates and we do not share or sell your
                   information to third parties.
                 </li>
               </ol>
@@ -112,11 +112,11 @@ const TermsOfUse = () => {
                   <strong>Playlist Content:</strong> We are not responsible for
                   the content of the playlists displayed on our platform, which
                   are the responsibility of the author of the playlist and are
-                  subject to the terms of use of the own YouTube.
+                  subject to YouTube's terms of use.
                 </li>
                 <li>
                   <strong>Revocation of Access:</strong> We reserve the right to
-                  revoke any user's access to our platform to our sole
+                  revoke any user's access to our platform at our sole
                   discretion.
                 </li>
                 <li>
@@ -126,20 +126,20 @@ const TermsOfUse = () => {
                   without notice.
                 </li>
                 <li>
-                  <strong>YouTube Data API Usage:</strong> ListVideo follows the
-                  terms of use of YouTube and all data of the videos and their
+                  <strong>YouTube Data API Usage:</strong> ListVideo follows
+                  YouTube's terms of use and all data of the videos and their
                   creators are obtained through the YouTube Data API.
                 </li>
                 <li>
                   <strong>Certificates:</strong> The certificates issued by
-                  ListVideo are not necessarily recognized by the creator of
-                  playlist content and are not “signed” by them.
+                  ListVideo are not necessarily recognized by the creator of the
+                  playlist content and are not signed by them.
                 </li>
                 <li>
                   <strong>
                     Changes to the Privacy Policy and Terms of Use:
                   </strong>
-                  We reserve the right to update this privacy policy. and the
+                  We reserve the right to update this privacy policy and the
                   Terms of Use at any time.
                 </li>
               </ol>

@@ -34,7 +34,7 @@ const UserProfile = () => {
               const data = await response.json();
               setUser(data);
             } else {
-              throw new Error("Request failed.");
+              throw new Error("Falha ao carregar dados.");
             }
           }
         } else {
@@ -56,7 +56,7 @@ const UserProfile = () => {
         <div className={styles.profile}>
           <div className={styles.profileWrapper}>
             <div className={styles.dkjkdjdfjd}>
-              {loading && <div>Loading</div>}
+              {loading && <div>Carregando...</div>}
               {user && (
                 <>
                   <img
