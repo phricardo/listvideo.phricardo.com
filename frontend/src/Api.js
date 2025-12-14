@@ -171,3 +171,60 @@ export const PAGE_PLAYLIST_GET = (playlistId, maxResults, pageToken) => {
     },
   };
 };
+
+export const SAVED_COURSE_SAVE = (body) => {
+  return {
+    url: `${API_URL}/me/saved-courses`,
+    options: {
+      method: "POST",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+};
+
+export const SAVED_COURSE_UPDATE = (id, body) => {
+  return {
+    url: `${API_URL}/me/saved-courses/${id}`,
+    options: {
+      method: "PATCH",
+      credentials: "include",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    },
+  };
+};
+
+export const SAVED_COURSE_DELETE = (id) => {
+  return {
+    url: `${API_URL}/me/saved-courses/${id}`,
+    options: {
+      method: "DELETE",
+      credentials: "include",
+    },
+  };
+};
+
+export const SAVED_COURSES_ME = () => {
+  return {
+    url: `${API_URL}/me/saved-courses`,
+    options: {
+      method: "GET",
+      credentials: "include",
+    },
+  };
+};
+
+export const SAVED_COURSES_BY_USERNAME = (username) => {
+  return {
+    url: `${API_URL}/users/${encodeURIComponent(username)}/saved-courses`,
+    options: {
+      method: "GET",
+    },
+  };
+};

@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Run ListVideo (dev env)",
+      "request": "launch",
+      "mainClass": "br.com.phricardo.listvideo.ListVideoApplication",
+      "cwd": "${workspaceFolder}/backend",
+      "envFile": "${workspaceFolder}/backend/.env.dev"
+    }
+  ]
+}

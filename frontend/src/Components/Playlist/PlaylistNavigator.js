@@ -15,6 +15,11 @@ function PlaylistNavigator({
   const { nextPage, prevPage, page, totalPage, watchedVideos } =
     React.useContext(PlaylistContext);
 
+  const handleSelect = (index) => {
+    if (!videos?.items?.[index]) return;
+    setCurrentVideoIndex(index);
+  };
+
   const isPlayingNow = (videoId) => {
     return currentVideo?.resourceId.videoId === videoId
       ? styles.playingNow
@@ -30,16 +35,14 @@ function PlaylistNavigator({
     <>
       <ul className={styles.ul}>
         {videos?.items.map((video, index) => (
-          <li
-            key={video.id}
-            onClick={() => {
-              setCurrentVideoIndex(index);
-              setCurrentVideo(video.snippet);
-            }}
-            className={`${isPlayingNow(
-              video.snippet.resourceId.videoId
-            )} ${isAlreadyWatched(video.snippet.resourceId.videoId)}`}
-          >
+          <li key={video.id}>
+            <button
+              type="button"
+              onClick={() => handleSelect(index)}
+              className={`${styles.item} ${isPlayingNow(
+                video.snippet.resourceId.videoId
+              )} ${isAlreadyWatched(video.snippet.resourceId.videoId)}`}
+            >
             <img
               src={
                 Object.keys(video.snippet.thumbnails).length > 0
@@ -50,6 +53,7 @@ function PlaylistNavigator({
               className={styles.thumbnail}
             />
             {video.snippet.title}
+            </button>
           </li>
         ))}
       </ul>

@@ -26,7 +26,9 @@ public enum ErrorKey {
   USER_NOT_FOUND_BY_USERNAME("user.not.found.by.username"),
   USER_NOT_FOUND_BY_EMAIL("user.not.found.by.email"),
   CERTIFICATE_NOT_FOUND("certificate.not.found"),
-  ACCOUNT_ACTIVATION_NOTFOUND("account.activation.notfound");
+  ACCOUNT_ACTIVATION_NOTFOUND("account.activation.notfound"),
+  SAVED_COURSE_NOT_FOUND("saved.course.not.found"),
+  SAVED_COURSE_AUTHOR_IMMUTABLE("saved.course.author.immutable");
 
   private final String key;
 }

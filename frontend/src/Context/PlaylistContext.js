@@ -18,6 +18,12 @@ export const PlaylistStorage = ({ children }) => {
     JSON.parse(localStorage.getItem("watchedVideos")) || {}
   );
 
+  React.useEffect(() => {
+    if (videos?.items && videos.items[currentVideoIndex]) {
+      setCurrentVideo(videos.items[currentVideoIndex].snippet);
+    }
+  }, [videos, currentVideoIndex]);
+
   const setPlaylistDurationSeconds = async (data, isIncrement) => {
     const videosId = data.items
       .map((item) => item.snippet.resourceId.videoId)

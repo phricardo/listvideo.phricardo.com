@@ -1,0 +1,318 @@
+.catalogSection {
+  width: 100%;
+  margin-top: 12rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.catalogHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.catalogTitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-color-1);
+}
+
+.catalogHint {
+  color: var(--text-color-2);
+  font-size: 0.95rem;
+}
+
+.catalogGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.1rem;
+}
+
+.catalogCard {
+  background: var(--background-01);
+  border: 1px solid var(--border-color-01, #2c2c2c);
+  border-radius: 0.9rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  min-height: 260px;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.22);
+}
+
+.catalogCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(177, 228, 88, 0.35);
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.35);
+}
+
+.catalogCardIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.45), rgba(127, 29, 29, 0.6)),
+    linear-gradient(135deg, rgba(239, 68, 68, 0.5), rgba(185, 28, 28, 0.35));
+  display: grid;
+  place-items: center;
+  color: #fff;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.catalogCardTitle {
+  font-weight: 800;
+  font-size: 1.08rem;
+  color: var(--text-color-1);
+  line-height: 1.3;
+}
+
+.catalogCardMeta {
+  font-size: 0.9rem;
+  color: var(--text-color-2);
+  line-height: 1.2;
+}
+
+.catalogBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: rgba(177, 228, 88, 0.12);
+  color: var(--text-color-1);
+  font-size: 0.8rem;
+  width: fit-content;
+}
+
+.catalogCardActions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.catalogLink {
+  color: var(--color-brand);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.catalogEditBtn {
+  background: none;
+  border: 1px solid var(--border-color-01, #2c2c2c);
+  color: var(--text-color-1);
+  padding: 0.45rem 0.8rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: border-color 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+.catalogEditBtn:hover {
+  border-color: var(--color-brand);
+  color: var(--color-brand);
+  transform: translateY(-1px);
+}
+
+.catalogEmpty {
+  padding: 1.5rem;
+  color: var(--text-color-2);
+  background: var(--background-01);
+  border: 1px dashed var(--border-color-01, #2c2c2c);
+  border-radius: 0.9rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.2);
+}
+
+.catalogEmptyTitle {
+  font-weight: 700;
+  color: var(--text-color-1);
+  margin-bottom: 0.3rem;
+}
+
+.catalogEmptySubtitle {
+  margin: 0;
+  color: var(--text-color-2);
+}
+
+.catalogModalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: grid;
+  place-items: center;
+  z-index: 999;
+  padding: 1rem;
+}
+
+.catalogModalCard {
+  background: var(--background-01);
+  color: var(--text-color-1);
+  border-radius: 1rem;
+  width: min(780px, 100%);
+  max-height: 92vh;
+  overflow: auto;
+  padding: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.catalogModalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.catalogModalTitle {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+.catalogClose {
+  border: none;
+  background: none;
+  color: var(--text-color-1);
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.catalogField {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.catalogField label {
+  font-weight: 600;
+}
+
+.catalogField input,
+.catalogField select,
+.catalogField textarea {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border-color-01, #2c2c2c);
+  background: var(--background-03);
+  color: var(--text-color-1);
+  padding: 0.75rem 0.9rem;
+}
+
+.catalogPreview {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 0.8rem;
+  align-items: center;
+  border: 1px dashed var(--border-color-01, #2c2c2c);
+  border-radius: 0.8rem;
+  padding: 0.8rem;
+}
+
+.catalogModalMeta {
+  font-size: 0.9rem;
+  color: var(--text-color-2);
+}
+
+.catalogModalActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.catalogPrimaryBtn {
+  background: var(--color-brand);
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.catalogGhostBtn {
+  background: none;
+  border: 1px solid var(--border-color-01, #2c2c2c);
+  color: var(--text-color-1);
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.catalogDangerBtn {
+  background: #ef4444;
+  color: #fff;
+  border: none;
+  padding: 0.75rem 1.2rem;
+  border-radius: 0.7rem;
+  cursor: pointer;
+}
+
+.iconPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.iconPickerSearch {
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border-color-01, #2c2c2c);
+  background: var(--background-03);
+  color: var(--text-color-1);
+}
+
+.iconPickerGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.6rem;
+  max-height: 220px;
+  overflow: auto;
+}
+
+.iconPickerItem {
+  border: 1px solid var(--border-color-01, #2c2c2c);
+  border-radius: 0.6rem;
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  background: var(--background-02);
+  color: var(--text-color-1);
+}
+
+.iconPickerItemActive {
+  border-color: var(--color-brand);
+  box-shadow: 0 0 0 2px rgba(177, 228, 88, 0.2);
+}
+
+.iconPickerIcon {
+  color: var(--text-color-1);
+}
+
+.catalogStatus {
+  color: var(--text-color-2);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .catalogSection {
+    margin-top: 14rem;
+  }
+
+  .catalogGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .catalogModalCard {
+    max-height: 88vh;
+  }
+}

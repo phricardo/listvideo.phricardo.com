@@ -115,3 +115,42 @@
   margin-bottom: 1rem;
   font-size: 0.9rem;
 }
+
+.catalogActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.catalogBtn {
+  background: var(--background-03);
+  color: var(--text-color-1);
+  padding: 0.8rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid var(--border-color-01, #2c2c2c);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.catalogBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.catalogStatus {
+  color: var(--text-color-2);
+  font-size: 0.9rem;
+}
+
+.playlistError {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #f87171;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  margin-bottom: 0.8rem;
+}

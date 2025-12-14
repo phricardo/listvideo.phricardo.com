@@ -28,28 +28,32 @@
     border-radius: 8px;
 }
  
- .ul > li {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 1rem;
+.ul > li {
+  list-style: none;
+}
 
-     cursor: pointer;
-     background: transparent;
-     color: var(--text-color-1);
-     box-shadow: 0 0 0 0.05rem var(--background-05);
-     margin: 0.5rem;
-     border-radius: 0.4rem;
-     transition: 0.1s;
-     border-left: 3px solid var(--background-05);
-     padding: 0.5rem;
-     padding-left: 0.5rem;
-     background: var(--background-03);
- }
- 
- .ul > li:hover {
-    background: var(--background-04);
- }
+.item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background: var(--background-03);
+  color: var(--text-color-1);
+  box-shadow: 0 0 0 0.05rem var(--background-05);
+  margin: 0.5rem;
+  border-radius: 0.4rem;
+  transition: 0.1s;
+  border-left: 3px solid var(--background-05);
+  padding: 0.5rem;
+  padding-left: 0.5rem;
+  width: 100%;
+  text-align: left;
+}
+
+.item:hover {
+  background: var(--background-04);
+}
 
  .btnGroup {
      display: inline-flex;

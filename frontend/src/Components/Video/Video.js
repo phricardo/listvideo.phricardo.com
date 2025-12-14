@@ -65,7 +65,6 @@ const Video = ({ currentVideo, currentVideoIndex, playlistId }) => {
     if (!autoplay) return;
     if (currentVideoIndex + 1 < videos.items.length) {
       setCurrentVideoIndex(currentVideoIndex + 1);
-      setCurrentVideo(videos.items[currentVideoIndex + 1].snippet);
     } else if (page < totalPage) {
       nextPageEnded(videos?.nextPageToken);
     }
