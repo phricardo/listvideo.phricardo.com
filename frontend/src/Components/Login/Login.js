@@ -62,9 +62,13 @@ const Login = () => {
               <Link to="/register">{lang[language]["login"].registerLink}</Link>
             </div>
             <div className={styles.register}>
-              <p>Não está conseguindo acessar?</p>
-              <Link to="/forgot-password">Redefina sua senha</Link>
-              <Link to="/resend-activation">Reenviar e-mail de ativação</Link>
+              <p>{lang[language]["login"].helpMessage}</p>
+              <Link to="/forgot-password">
+                {lang[language]["login"].resetPasswordLink}
+              </Link>
+              <Link to="/resend-activation">
+                {lang[language]["login"].resendActivationLink}
+              </Link>
             </div>
           </div>
         </div>

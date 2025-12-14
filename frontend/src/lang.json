@@ -48,7 +48,10 @@
       "passwordLabel": "Senha:",
       "loginButton": "Entrar",
       "registerMessage": "Crie sua conta gratis hoje!",
-      "registerLink": "Cadastrar"
+      "registerLink": "Cadastrar",
+      "helpMessage": "Nao esta conseguindo acessar?",
+      "resetPasswordLink": "Redefina sua senha",
+      "resendActivationLink": "Reenviar e-mail de ativacao"
     },
     "register": {
       "title": "Cadastro na plataforma",
@@ -79,6 +82,49 @@
         "title": "Tema",
         "description": "Alterne entre o tema escuro ou claro"
       }
+    },
+    "terms": {
+      "title": "Termos de uso e privacidade",
+      "lead": "Este resumo explica como a ListVideo lida com dados e como a plataforma funciona.",
+      "sections": [
+        {
+          "title": "Dados que coletamos e uso",
+          "items": [
+            "Coletamos nome, email, username e senha criptografada para autenticar voce e emitir certificados.",
+            "Usamos os dados apenas para login, emissao de certificados, envio de ativacao/redefinicao de senha e comunicacoes essenciais; nao vendemos nem compartilhamos com terceiros."
+          ]
+        },
+        {
+          "title": "Integracao com YouTube Data API",
+          "items": [
+            "Listamos playlists e videos usando a YouTube Data API seguindo os termos do YouTube.",
+            "O conteudo pertence aos criadores originais; a ListVideo nao hospeda videos nem altera o material publicado."
+          ]
+        },
+        {
+          "title": "Contas, ativacao e acesso",
+          "items": [
+            "O acesso depende da confirmacao por email; podemos revogar contas em caso de abuso, fraude ou risco de seguranca.",
+            "A plataforma e gratuita e pode ser interrompida, alterada ou removida sem aviso previo."
+          ]
+        },
+        {
+          "title": "Certificados",
+          "items": [
+            "Certificados refletem seu progresso na plataforma e nao equivalem a validacao oficial do criador da playlist.",
+            "Guarde seu login; se perder o acesso, talvez nao seja possivel reemitir certificados anteriores."
+          ]
+        },
+        {
+          "title": "Seguranca e suporte",
+          "items": [
+            "Senhas sao armazenadas com hash seguro no backend; nunca pediremos sua senha por email.",
+            "Duvidas, remocao de conta ou dados: escreva para support@listvideo.app."
+          ]
+        }
+      ],
+      "footerNote": "Ao continuar usando a ListVideo voce concorda com estes termos.",
+      "lastUpdate": "Ultima atualizacao: Dezembro/2025"
     },
     "passwordReset": {
       "title": "Recuperacao de senha",
@@ -162,7 +208,10 @@
       "passwordLabel": "Password:",
       "loginButton": "Login",
       "registerMessage": "Create your free account today!",
-      "registerLink": "Register"
+      "registerLink": "Register",
+      "helpMessage": "Having trouble accessing?",
+      "resetPasswordLink": "Reset your password",
+      "resendActivationLink": "Resend activation email"
     },
     "register": {
       "title": "Platform Sign Up",
@@ -193,6 +242,49 @@
         "title": "Theme",
         "description": "Switch between dark or light theme"
       }
+    },
+    "terms": {
+      "title": "Terms of use and privacy",
+      "lead": "This summary explains how ListVideo handles data and how the platform works.",
+      "sections": [
+        {
+          "title": "Data we collect and use",
+          "items": [
+            "We collect name, email, username, and hashed password to authenticate you and issue certificates.",
+            "Data is used only for login, certificates, activation/reset emails, and essential service updates; we do not sell or share with third parties."
+          ]
+        },
+        {
+          "title": "YouTube Data API integration",
+          "items": [
+            "We list playlists and videos using the YouTube Data API under YouTube's terms.",
+            "Content belongs to the original creators; ListVideo does not host videos or alter published material."
+          ]
+        },
+        {
+          "title": "Accounts, activation, and access",
+          "items": [
+            "Access depends on email confirmation; we may revoke accounts in cases of abuse, fraud, or security risk.",
+            "The platform is free and may be changed, interrupted, or removed without prior notice."
+          ]
+        },
+        {
+          "title": "Certificates",
+          "items": [
+            "Certificates reflect your progress on the platform and are not an official validation from the playlist creator.",
+            "Keep your login safe; if you lose access we may not be able to reissue past certificates."
+          ]
+        },
+        {
+          "title": "Security and support",
+          "items": [
+            "Passwords are stored with secure hashing in the backend; we will never ask for your password by email.",
+            "Questions, account removal, or data requests: contact support@listvideo.app."
+          ]
+        }
+      ],
+      "footerNote": "By continuing to use ListVideo you agree to these terms.",
+      "lastUpdate": "Last update: December/2025"
     },
     "passwordReset": {
       "title": "Password recovery",

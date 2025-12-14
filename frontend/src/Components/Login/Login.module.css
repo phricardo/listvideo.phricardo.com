@@ -15,7 +15,8 @@
 .wrapper {
     display: flex;
     height: 100%;
-    width: 50%;
+    width: 100%;
+    max-width: 520px;
     align-items: center;
     justify-content: center;
     flex-direction: column;
