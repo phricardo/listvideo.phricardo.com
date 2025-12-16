@@ -1,36 +1,36 @@
 package br.com.phricardo.listvideo.service.email;
 
 import java.util.Locale;
-import java.util.Optional;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Component;
+
+import br.com.phricardo.listvideo.utils.MessageUtils;
 
 @Component
 @RequiredArgsConstructor
 public class EmailContentResolver {
 
-  private final MessageSource messageSource;
+  private final MessageUtils messageUtils;
 
-  public LocalizedActionEmailContent getPasswordResetContent(Locale locale) {
-    final var resolvedLocale = resolveLocale(locale);
+  public LocalizedActionEmailContent getPasswordResetContent(final Locale locale) {
     return new LocalizedActionEmailContent(
-        messageSource.getMessage("email.password.reset.subject", null, resolvedLocale),
-        messageSource.getMessage("email.password.reset.content", null, resolvedLocale),
-        messageSource.getMessage("email.password.reset.actionLabel", null, resolvedLocale));
+        messageUtils.getMessage("email.password.reset.subject", locale),
+        messageUtils.getMessage("email.password.reset.content", locale),
+        messageUtils.getMessage("email.password.reset.actionLabel", locale)
+    );
   }
 
-  public LocalizedActionEmailContent getAccountActivationContent(Locale locale) {
-    final var resolvedLocale = resolveLocale(locale);
+  public LocalizedActionEmailContent getAccountActivationContent(final Locale locale) {
     return new LocalizedActionEmailContent(
-        messageSource.getMessage("email.activation.subject", null, resolvedLocale),
-        messageSource.getMessage("email.activation.content", null, resolvedLocale),
-        messageSource.getMessage("email.activation.actionLabel", null, resolvedLocale));
+        messageUtils.getMessage("email.activation.subject", locale),
+        messageUtils.getMessage("email.activation.content", locale),
+        messageUtils.getMessage("email.activation.actionLabel", locale)
+    );
   }
 
-  private Locale resolveLocale(Locale locale) {
-    return Optional.ofNullable(locale).orElse(Locale.ENGLISH);
-  }
-
-  public record LocalizedActionEmailContent(String subject, String content, String actionLabel) {}
+  public record LocalizedActionEmailContent(
+      String subject,
+      String content,
+      String actionLabel
+  ) {}
 }
