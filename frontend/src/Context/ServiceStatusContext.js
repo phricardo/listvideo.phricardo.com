@@ -1,7 +1,7 @@
 import React from "react";
-import { safeParseJson } from "../utils/apiErrors";
 import { STATUS_FEATURES, STATUS_HEALTH } from "../Api";
 import { fetchWithTimeout } from "../utils/fetchWithTimeout";
+import { safeParseJson } from "../utils/apiErrors";
 
 const TIMEOUT_MS = 5000;
 
