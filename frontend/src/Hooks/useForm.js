@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { LanguageContext } from "../Context/LanguageContext";
 
 const types = {

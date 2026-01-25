@@ -1,4 +1,4 @@
-﻿const FEATURE_DISABLED_MESSAGES = {
+const FEATURE_DISABLED_MESSAGES = {
   password_reset_email: {
     pt: "Recuperação de senha está temporariamente indisponível porque o envio de e-mail foi desativado para reduzir os custos do projeto.",
     en: "Password recovery is temporarily unavailable because email sending is disabled to reduce project costs.",

@@ -16,50 +16,61 @@ const Video = ({ currentVideo, currentVideoIndex, playlistId }) => {
     page,
     totalPage,
     setCurrentVideoIndex,
-    setCurrentVideo,
     nextPageEnded,
     watchedVideos,
     setWatchedVideos,
   } = React.useContext(PlaylistContext);
   const [check, setCheck] = React.useState(false);
 
+  const saveWatchedVideo = React.useCallback(
+    (playlistId, videoId) => {
+      let watchedVideos = JSON.parse(localStorage.getItem("watchedVideos")) || {};
+      if (!watchedVideos[playlistId]) {
+        watchedVideos[playlistId] = [];
+        setWatchedVideos(watchedVideos);
+      }
+      if (!watchedVideos[playlistId].includes(videoId)) {
+        watchedVideos[playlistId].push(videoId);
+        setWatchedVideos(watchedVideos);
+        localStorage.setItem("watchedVideos", JSON.stringify(watchedVideos));
+      }
+    },
+    [setWatchedVideos]
+  );
+
+  const removeWatchedVideo = React.useCallback(
+    (playlistId, videoId) => {
+      let watchedVideos = JSON.parse(localStorage.getItem("watchedVideos")) || {};
+      if (!watchedVideos[playlistId]) {
+        return;
+      }
+      let index = watchedVideos[playlistId].indexOf(videoId);
+      if (index > -1) {
+        watchedVideos[playlistId].splice(index, 1);
+        setWatchedVideos(watchedVideos);
+        localStorage.setItem("watchedVideos", JSON.stringify(watchedVideos));
+      }
+    },
+    [setWatchedVideos]
+  );
+
   React.useEffect(() => {
     if (watchedVideos[playlistId])
       setCheck(
         watchedVideos[playlistId].includes(currentVideo?.resourceId?.videoId)
       );
-  }, [currentVideo]);
+  }, [currentVideo?.resourceId?.videoId, playlistId, watchedVideos]);
 
   React.useEffect(() => {
     if (check) saveWatchedVideo(playlistId, currentVideo?.resourceId?.videoId);
     else removeWatchedVideo(playlistId, currentVideo?.resourceId?.videoId);
-  }, [check]);
-
-  const saveWatchedVideo = (playlistId, videoId) => {
-    let watchedVideos = JSON.parse(localStorage.getItem("watchedVideos")) || {};
-    if (!watchedVideos[playlistId]) {
-      watchedVideos[playlistId] = [];
-      setWatchedVideos(watchedVideos);
-    }
-    if (!watchedVideos[playlistId].includes(videoId)) {
-      watchedVideos[playlistId].push(videoId);
-      setWatchedVideos(watchedVideos);
-      localStorage.setItem("watchedVideos", JSON.stringify(watchedVideos));
-    }
-  };
-
-  const removeWatchedVideo = (playlistId, videoId) => {
-    let watchedVideos = JSON.parse(localStorage.getItem("watchedVideos")) || {};
-    if (!watchedVideos[playlistId]) {
-      return;
-    }
-    let index = watchedVideos[playlistId].indexOf(videoId);
-    if (index > -1) {
-      watchedVideos[playlistId].splice(index, 1);
-      setWatchedVideos(watchedVideos);
-      localStorage.setItem("watchedVideos", JSON.stringify(watchedVideos));
-    }
-  };
+  }, [
+    check,
+    currentVideo?.resourceId?.videoId,
+    playlistId,
+    removeWatchedVideo,
+    saveWatchedVideo,
+  ]);
 
   const handleEnded = () => {
     if (!autoplay) return;
