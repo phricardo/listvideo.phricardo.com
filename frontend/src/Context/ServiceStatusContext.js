@@ -1,12 +1,15 @@
 import React from "react";
-import { STATUS_FEATURES, STATUS_HEALTH } from "../Api";
 import { safeParseJson } from "../utils/apiErrors";
+import { STATUS_FEATURES, STATUS_HEALTH } from "../Api";
+import { fetchWithTimeout } from "../utils/fetchWithTimeout";
+
+const TIMEOUT_MS = 5000;
 
 export const ServiceStatusContext = React.createContext({
   apiOnline: true,
   features: {},
   loading: true,
-  refreshStatus: () => {},
+  refreshStatus: () => { },
 });
 
 export const ServiceStatusProvider = ({ children }) => {
@@ -17,9 +20,10 @@ export const ServiceStatusProvider = ({ children }) => {
   const fetchHealth = React.useCallback(async () => {
     try {
       const { url, options } = STATUS_HEALTH();
-      const response = await fetch(url, options);
+      const response = await fetchWithTimeout(url, options, TIMEOUT_MS);
       setApiOnline(Boolean(response?.ok));
     } catch (error) {
+      // AbortError ou erro de rede -> offline
       setApiOnline(false);
     }
   }, []);
@@ -27,13 +31,13 @@ export const ServiceStatusProvider = ({ children }) => {
   const fetchFeatures = React.useCallback(async () => {
     try {
       const { url, options } = STATUS_FEATURES();
-      const response = await fetch(url, options);
+      const response = await fetchWithTimeout(url, options, TIMEOUT_MS);
       if (!response?.ok) return;
 
       const payload = await safeParseJson(response);
       setFeatures(payload?.features || payload || {});
     } catch (error) {
-      // Ignore failures to avoid overwriting last known feature state
+      // Ignora para não apagar último estado conhecido
     }
   }, []);
 
