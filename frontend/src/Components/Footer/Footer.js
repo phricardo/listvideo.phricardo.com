@@ -20,7 +20,7 @@ const Footer = () => {
 
       <p className={styles.text}>
         {lang[language]["footer"].poweredBy}{" "}
-        <a href="https://phricardo.com/" target="_blank" noreferrer>
+        <a href="https://phricardo.com/" target="_blank" rel="noopener noreferrer">
           @phricardorj | @phricardo
         </a>
       </p>

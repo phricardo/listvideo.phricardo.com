@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import Header from "../Header/Header";
 import Video from "../Video/Video";
 import Footer from "../Footer/Footer";

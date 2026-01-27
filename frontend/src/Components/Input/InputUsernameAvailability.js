@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import styles from "./InputUsernameAvailability.module.css";
 import { Icon } from "@iconify/react";
 import { USER_CHECK_USERNAME } from "../../Api";

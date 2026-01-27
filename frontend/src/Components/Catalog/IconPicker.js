@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Icon } from "@iconify/react";
 import styles from "./Catalog.module.css";
 

@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { useNavigate, useParams } from "react-router";
 import { USER_CHECK_EMAIL } from "../../Api";
 import Footer from "../Footer/Footer";
@@ -15,6 +15,10 @@ const LoginValidate = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
+    if (!id) {
+      setLoading(false);
+      return;
+    }
     async function checkUserId(id) {
       try {
         setLoading(true);
@@ -30,7 +34,7 @@ const LoginValidate = () => {
       }
     }
     checkUserId(id);
-  }, []);
+  }, [id]);
 
   if (check && !loading)
     return (
